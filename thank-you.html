@@ -114,7 +114,7 @@
         <a href="security.html">Security</a>
       </div>
       <div class="nav-cta">
-        <a href="index.html#join" class="btn btn-primary">Join Early Access</a>
+        <a href="index.html#download" class="btn btn-primary">Join Early Access</a>
         <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       </div>
     </nav>
@@ -175,6 +175,15 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
     window.matchMedia('(min-width:681px)').addEventListener('change',function(e){if(e.matches)set(false);});
   })();
+</script>
+<script>
+  /* ===== PLACEHOLDER — iOS App Store URL (SITE-LAUNCH-1) =====
+     VERIFY ON APPROVAL DAY, BEFORE DEPLOY, that this id resolves to the live listing:
+     https://apps.apple.com/app/id6792522520
+     Every App Store badge on this page reads its href from this one constant
+     (the static href on each badge carries the same value for no-JS crawlers). */
+  var APP_STORE_URL = 'https://apps.apple.com/app/id6792522520';
+  document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
 </script>
 </body>
 </html>

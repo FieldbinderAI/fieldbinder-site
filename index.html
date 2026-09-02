@@ -143,6 +143,13 @@
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
   .hero-trust{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-3);letter-spacing:.02em}
   .hero-trust .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+  /* SITE-LAUNCH-1: store badges (official Apple / Google artwork, unmodified) */
+  .store-row{margin:-8px 0 24px}
+  .store-line{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);margin:0 0 12px}
+  .store-badges{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .store-badges-center{justify-content:center}
+  .store-badge{display:inline-block;line-height:0;border-radius:6px;transition:transform .18s var(--ease),opacity .18s var(--ease)}
+  .store-badge:hover{transform:translateY(-1px);opacity:.92}
 
   /* ---------- Phone + report signature ---------- */
   .stage{position:relative;height:560px}
@@ -408,7 +415,7 @@
       </div>
       <div class="nav-cta">
         <a href="login.html" class="nav-login">Log in</a>
-        <a href="#join" class="btn btn-primary">Join Early Access</a>
+        <a href="#download" class="btn btn-primary">Download now</a>
         <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -435,11 +442,18 @@
         <h1>Capture the field.<br><span class="accent">Generate the report.</span></h1>
         <p class="hero-sub">FieldBinder AI captures photos, videos, notes, and voice memos directly into each project — then turns them into daily reports, punch lists, RFI lists, and executive summaries. Stop losing project details in your camera roll.</p>
         <div class="hero-cta">
-          <a href="#join" class="btn btn-primary">
-            Join Early Access
+          <a href="#download" class="btn btn-primary">
+            Download now
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="#how" class="btn btn-ghost">See how it works</a>
+        </div>
+        <div class="store-row">
+          <p class="store-line">Now available on iPhone and Android</p>
+          <div class="store-badges">
+            <a href="https://apps.apple.com/app/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+            <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
+          </div>
         </div>
         <div class="hero-trust">
           <span class="dot"></span>
@@ -748,7 +762,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Basic project organization</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Limited storage</li>
         </ul>
-        <a href="#join" class="btn btn-ghost">Start free</a>
+        <a href="#download" class="btn btn-ghost">Start free</a>
       </div>
 
       <div class="plan featured">
@@ -763,7 +777,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Branded PDF export with your logo</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>More storage</li>
         </ul>
-        <a href="#join" class="btn btn-primary">Join Early Access</a>
+        <a href="#download" class="btn btn-primary">Download now</a>
       </div>
 
       <div class="plan">
@@ -776,7 +790,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tags, filters & project feed</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Basic exports</li>
         </ul>
-        <a href="#join" class="btn btn-ghost">Start with Basic</a>
+        <a href="#download" class="btn btn-ghost">Start with Basic</a>
       </div>
     </div>
     <p class="team-note"><b>Team plan coming later</b> — shared projects, company workspaces, multi-user access, and admin controls. <a href="pricing.html" style="color:var(--blue-bright)">See full pricing & comparison →</a></p>
@@ -819,24 +833,18 @@
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="final" id="join">
+<section class="final" id="download">
+  <span id="join" aria-hidden="true"></span>
   <div class="grid-bg"></div>
   <div class="wrap">
     <div class="final-inner reveal">
-      <span class="eyebrow" style="justify-content:center">Early access</span>
+      <span class="eyebrow" style="justify-content:center">Download now</span>
       <h2>Capture the field.<br><span class="accent">Generate the report.</span></h2>
-      <p>Join the early access list. Be first to put FieldBinder AI on your next site visit — and help shape the reports it writes.</p>
-      <form class="signup" id="signupForm" name="early-access" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
-        <input type="hidden" name="form-name" value="early-access">
-        <p class="hidden-field" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <input type="email" id="email" name="email" placeholder="you@company.com" aria-label="Email address" required>
-        <button type="submit" class="btn btn-primary">Join Early Access</button>
-      </form>
-      <div class="success" id="successMsg">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-        You're on the list. We'll be in touch before launch.
+      <p>Now available on iPhone and Android.</p>
+      <div class="store-badges store-badges-center">
+        <a href="https://apps.apple.com/app/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
       </div>
-      <p class="signup-note" id="signupNote">No spam. Launch updates and early access only.</p>
     </div>
   </div>
 </section>
@@ -851,6 +859,10 @@
           <span>FieldBinder<span class="ai"> AI</span></span>
         </a>
         <p>Turn field documentation into professional project reports. Your project memory, organized by job.</p>
+        <div class="foot-badges" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px">
+          <a href="https://apps.apple.com/app/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
+          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
+        </div>
       </div>
       <div class="foot-col">
         <h5>Product</h5>
@@ -863,7 +875,7 @@
       <div class="foot-col">
         <h5>Company</h5>
         <a href="about.html">About</a>
-        <a href="#join">Early access</a>
+        <a href="#download">Download</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
@@ -877,6 +889,7 @@
     <div class="foot-bottom">
       <p>© 2026 FieldBinder AI. All rights reserved.</p>
       <p class="foot-tagline">Capture the field. Generate the report.</p>
+      <p class="foot-marks" style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;color:var(--text-3);margin-top:10px;max-width:760px">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries. Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </div>
   </div>
 </footer>
@@ -888,25 +901,6 @@
   },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Early-access form (front-end only — wire to a real backend before launch)
-  const form = document.getElementById('signupForm');
-  const showSuccess = ()=>{
-    form.style.display='none';
-    document.getElementById('signupNote').style.display='none';
-    document.getElementById('successMsg').style.display='flex';
-  };
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const email = document.getElementById('email');
-    if(!email.value || !email.checkValidity()){ email.focus(); email.style.borderColor='var(--amber)'; return; }
-    // Submits to Netlify's native form handler; captures land in Netlify dashboard > Forms
-    fetch('/', {
-      method:'POST',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:new URLSearchParams(new FormData(form)).toString()
-    }).then(showSuccess).catch(showSuccess);
-  });
-
   /* mobile nav toggle */
   (function(){
     var btn=document.querySelector('.menu-btn'),menu=document.getElementById('mobileMenu');
@@ -917,6 +911,15 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
     window.matchMedia('(min-width:681px)').addEventListener('change',function(e){if(e.matches)set(false);});
   })();
+</script>
+<script>
+  /* ===== PLACEHOLDER — iOS App Store URL (SITE-LAUNCH-1) =====
+     VERIFY ON APPROVAL DAY, BEFORE DEPLOY, that this id resolves to the live listing:
+     https://apps.apple.com/app/id6792522520
+     Every App Store badge on this page reads its href from this one constant
+     (the static href on each badge carries the same value for no-JS crawlers). */
+  var APP_STORE_URL = 'https://apps.apple.com/app/id6792522520';
+  document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
 </script>
 </body>
 </html>
