@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Log in — FieldBinder AI</title>
-<meta name="description" content="FieldBinder AI login. The app is available now on iPhone and Android — web portal login opens with the first portal release.">
+<title>Log in to the web portal — FieldBinder AI</title>
+<meta name="description" content="The FieldBinder AI web portal is live. Sign in with your app account to browse projects and captures, generate and edit reports, and export branded PDFs from your desk.">
 <link rel="canonical" href="https://fieldbinder.ai/login">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -12,15 +12,15 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FieldBinder AI">
-<meta property="og:title" content="Log in — FieldBinder AI">
-<meta property="og:description" content="FieldBinder AI login. The app is available now on iPhone and Android — web portal login opens with the first portal release.">
+<meta property="og:title" content="Log in to the web portal — FieldBinder AI">
+<meta property="og:description" content="The FieldBinder AI web portal is live. Sign in with your app account to browse projects and captures, generate and edit reports, and export branded PDFs from your desk.">
 <meta property="og:url" content="https://fieldbinder.ai/login.html">
 <meta property="og:image" content="https://fieldbinder.ai/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Log in — FieldBinder AI">
-<meta name="twitter:description" content="FieldBinder AI login. The app is available now on iPhone and Android — web portal login opens with the first portal release.">
+<meta name="twitter:title" content="Log in to the web portal — FieldBinder AI">
+<meta name="twitter:description" content="The FieldBinder AI web portal is live. Sign in with your app account to browse projects and captures, generate and edit reports, and export branded PDFs from your desk.">
 <meta name="twitter:image" content="https://fieldbinder.ai/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,11 +72,17 @@
   main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:80px 28px}
   .login-card{position:relative;z-index:2;width:100%;max-width:440px;background:var(--bg-elev);border:1px solid var(--line-bright);border-radius:16px;padding:40px 36px;text-align:center;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
   .login-card .logo-mark{width:44px;height:44px;margin:0 auto 20px}
-  .status{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.28);border-radius:20px;padding:6px 14px;margin-bottom:20px}
-  .status .dot{width:6px;height:6px;border-radius:50%;background:var(--amber)}
+  .live{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:rgba(45,190,108,.1);border:1px solid rgba(45,190,108,.28);border-radius:20px;padding:6px 14px;margin-bottom:20px}
+  .live .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+  .cap-list{list-style:none;text-align:left;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:9px}
+  .cap-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-2);line-height:1.45}
+  .cap-list svg{width:16px;height:16px;flex:none;margin-top:3px;stroke:var(--green)}
+  .login-card p.fineprint{font-size:13px;color:var(--text-2);line-height:1.5;margin:6px 0 0}
+  .login-card p.fineprint b{color:var(--text);font-weight:600}
   .login-card h1{font-size:26px;margin-bottom:12px}
   .login-card p{color:var(--text-2);font-size:14.5px;margin-bottom:26px}
   .login-card .btn{width:100%;margin-bottom:12px}
+  .login-card .btn svg{flex:none}
   .backlink{font-size:13.5px;color:var(--text-3);display:inline-flex;align-items:center;gap:6px;margin-top:8px;transition:color .16s}
   .backlink:hover{color:var(--text-2)}
   .backlink svg{width:14px;height:14px}
@@ -92,6 +98,7 @@
     .nav-links{display:none}
     .menu-btn{display:flex}.mobile-menu.open{display:flex}
     .login-card{padding:32px 24px}
+    .login-card h1{font-size:22px}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -120,7 +127,7 @@
   <div id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Mobile menu">
     <a href="/features">Features</a>
     <a href="/use-cases">Use cases</a>
-    <a href="#reports">Reports</a>
+    <a href="index.html#reports">Reports</a>
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
     <a href="/login" class="mm-login">Log in</a>
@@ -131,13 +138,20 @@
   <div class="grid-bg"></div>
   <div class="login-card">
     <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" rx="7" fill="#2E80FF"/><g transform="translate(16 16) scale(0.18) translate(-80.75 -84)"><rect x="52" y="40" width="64" height="88" rx="10" fill="none" stroke="#fff" stroke-width="12"/><circle cx="52" cy="58" r="9" fill="none" stroke="#fff" stroke-width="7"/><circle cx="52" cy="84" r="9" fill="none" stroke="#fff" stroke-width="7"/><circle cx="52" cy="110" r="9" fill="none" stroke="#fff" stroke-width="7"/><rect x="70" y="60" width="34" height="9" rx="4" fill="#fff"/><rect x="70" y="78" width="34" height="9" rx="4" fill="#fff"/><path d="M92 92 C95 104 98 107 110 110 C98 113 95 116 92 128 C89 116 86 113 74 110 C86 107 89 104 92 92 Z" fill="#fff"/></g></svg>
-    <div class="status"><span class="dot"></span>In development</div>
-    <h1>Login opens at launch.</h1>
-    <p>The FieldBinder AI app is available now on iPhone and Android. Web portal login is in active development and opens with the first portal release.</p>
-    <a href="index.html#download" class="btn btn-primary">Download now
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    <div class="live"><span class="dot"></span>Web portal · live</div>
+    <h1>Capture in the field.<br>Work from your desk.</h1>
+    <p>The FieldBinder AI web portal is live. Sign in with your app account and your projects are there — on a full screen, with a keyboard.</p>
+    <ul class="cap-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Browse every project and capture — photos, video, voice notes with transcripts, and files</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Generate a report, edit the draft, regenerate it, and export the branded PDF</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Describe photos with AI or caption them yourself; delete what doesn't belong</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Company profile and logo, plan, and storage at a glance</li>
+    </ul>
+    <a href="https://fieldbinder-portal.netlify.app" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Open the web portal (opens in a new tab)">Open the web portal
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
-    <a href="contact.html" class="btn btn-ghost">Ask a question</a>
+    <a href="index.html#download" class="btn btn-ghost">Get the app</a>
+    <p class="fineprint"><b>Sign in with the same email and password as the app.</b> Accounts that sign in with Apple, and self-serve signup, aren't supported on the web yet — use the app for those. AI report generation, AI photo descriptions, and branded PDF export are Pro features, same as in the app.</p>
     <br>
     <a href="index.html" class="backlink">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>

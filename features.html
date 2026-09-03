@@ -160,7 +160,7 @@
   .browser{background:var(--bg);border:1px solid var(--line-bright);border-radius:12px;overflow:hidden}
   .b-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:var(--bg-elev-2);border-bottom:1px solid var(--line)}
   .b-dot{width:9px;height:9px;border-radius:50%;background:var(--line-bright)}
-  .b-url{margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-3);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:3px 10px}
+  .b-url{margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-3);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:3px 10px;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .b-body{display:grid;grid-template-columns:70px 1fr;height:150px}
   .b-side{border-right:1px solid var(--line);padding:12px 10px;display:flex;flex-direction:column;gap:8px}
   .b-navitem{height:8px;border-radius:4px;background:var(--line-bright)}
@@ -228,7 +228,7 @@
         <a href="security.html">Security</a>
       </div>
       <div class="nav-cta">
-        <a href="#" class="nav-login">Log in</a>
+        <a href="login.html" class="nav-login">Log in</a>
         <a href="index.html#download" class="btn btn-primary">Download now</a>
         <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       </div>
@@ -237,7 +237,7 @@
   <div id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Mobile menu">
     <a href="/features">Features</a>
     <a href="/use-cases">Use cases</a>
-    <a href="#reports">Reports</a>
+    <a href="index.html#reports">Reports</a>
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
     <a href="/login" class="mm-login">Log in</a>
@@ -395,17 +395,22 @@
     <div class="frow reveal">
       <div class="frow-copy">
         <span class="tag-mono">06 · Web portal</span>
-        <h2>Capture on your phone. Review at your desk.</h2>
-        <p>The field work happens on your phone — but some work is just easier on a computer. The companion web portal lets you review projects, edit reports, export PDFs, and manage your company settings on a full screen and keyboard.</p>
+        <h2>Capture in the field. Generate, review, and export from your desk.</h2>
+        <p>The field work happens on your phone — but some work is just easier on a computer. The companion web portal is live: sign in with your app account and the same projects are on a full screen and keyboard. Browse every capture, generate a report from your desk, edit the draft, and export the branded PDF. Same account, same data, nothing to set up.</p>
         <ul class="flist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Review projects and captures on desktop</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Edit and export reports with more room to work</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Manage company profile, logo, billing, and storage</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Browse projects and captures — photos, video, voice notes with transcripts, and files</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Generate, edit, regenerate, and export reports as a branded PDF</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Describe photos with AI or caption them yourself; delete what doesn't belong</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Company profile and logo, plan, and storage at a glance</li>
         </ul>
+        <div class="btn-row" style="justify-content:flex-start;margin-top:22px">
+          <a href="https://fieldbinder-portal.netlify.app" class="btn btn-ghost" target="_blank" rel="noopener" aria-label="Open the web portal (opens in a new tab)">Open the web portal</a>
+        </div>
+        <p style="font-size:13px;color:var(--text-2);margin-top:14px;line-height:1.5">Sign in with the same email and password as the app. AI report generation, AI photo descriptions, and branded PDF export are Pro features, same as in the app. Accounts that sign in with Apple, and self-serve signup, aren't supported on the web yet.</p>
       </div>
       <div class="frow-visual">
         <div class="browser">
-          <div class="b-bar"><span class="b-dot"></span><span class="b-dot"></span><span class="b-dot"></span><span class="b-url">app.fieldbinder.ai</span></div>
+          <div class="b-bar"><span class="b-dot"></span><span class="b-dot"></span><span class="b-dot"></span><span class="b-url">fieldbinder-portal.netlify.app</span></div>
           <div class="b-body">
             <div class="b-side"><div class="b-navitem on"></div><div class="b-navitem"></div><div class="b-navitem"></div><div class="b-navitem"></div></div>
             <div class="b-main"><div class="b-block" style="width:55%"></div><div class="b-block" style="width:80%;height:8px"></div><div class="b-grid2"><div class="b-tile"></div><div class="b-tile"></div><div class="b-tile"></div><div class="b-tile"></div></div></div>
