@@ -182,7 +182,7 @@
       </div>
       <div class="nav-cta">
         <a href="login.html" class="nav-login">Log in</a>
-        <a href="index.html#join" class="btn btn-primary">Join Early Access</a>
+        <a href="index.html#download" class="btn btn-primary">Download now</a>
         <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       </div>
     </nav>
@@ -190,7 +190,7 @@
   <div id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Mobile menu">
     <a href="/features">Features</a>
     <a href="/use-cases">Use cases</a>
-    <a href="#reports">Reports</a>
+    <a href="index.html#reports">Reports</a>
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
     <a href="/login" class="mm-login">Log in</a>
@@ -316,11 +316,12 @@
     <div class="final-inner reveal">
       <span class="eyebrow" style="justify-content:center">Get started</span>
       <h2>Capture the field.<br><span class="accent">Generate the report.</span></h2>
-      <p>Join the early access list and be first to put FieldBinder AI on your next site visit.</p>
+      <p>Now available on iPhone and Android.</p>
+      <div class="store-badges" style="display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:22px">
+        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
+      </div>
       <div class="btn-row">
-        <a href="index.html#join" class="btn btn-primary">Join Early Access
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
         <a href="features.html" class="btn btn-ghost">Explore the features</a>
       </div>
     </div>
@@ -336,6 +337,10 @@
           <span>FieldBinder<span class="ai"> AI</span></span>
         </a>
         <p>Turn field documentation into professional project reports. Your project memory, organized by job.</p>
+        <div class="foot-badges" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px">
+          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
+          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
+        </div>
       </div>
       <div class="foot-col">
         <h5>Product</h5>
@@ -348,7 +353,7 @@
       <div class="foot-col">
         <h5>Company</h5>
         <a href="about.html">About</a>
-        <a href="index.html#join">Early access</a>
+        <a href="index.html#download">Download</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
@@ -362,6 +367,7 @@
     <div class="foot-bottom">
       <p>© 2026 FieldBinder AI. All rights reserved.</p>
       <p class="foot-tagline">Capture the field. Generate the report.</p>
+      <p class="foot-marks" style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;color:var(--text-3);margin-top:10px;max-width:760px">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries. Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </div>
   </div>
 </footer>
@@ -380,6 +386,15 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
     window.matchMedia('(min-width:681px)').addEventListener('change',function(e){if(e.matches)set(false);});
   })();
+</script>
+<script>
+  /* ===== iOS App Store URL of record (verified live 2026-09-11) =====
+     Verified live 2026-09-11 (SITE-LAUNCH-2) — this id resolves to the live listing:
+     https://apps.apple.com/us/app/fieldbinder-ai/id6792522520
+     Every App Store badge on this page reads its href from this one constant
+     (the static href on each badge carries the same value for no-JS crawlers). */
+  var APP_STORE_URL = 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520';
+  document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
 </script>
 </body>
 </html>

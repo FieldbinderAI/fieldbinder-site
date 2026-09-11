@@ -142,7 +142,19 @@
   .hero-sub{font-size:clamp(17px,1.6vw,20px);color:var(--text-2);max-width:540px;margin-bottom:34px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
   .hero-trust{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-3);letter-spacing:.02em}
+.portal-line{margin-top:30px;padding:16px 20px;border:1px solid var(--line);border-radius:12px;background:var(--bg-elev);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.portal-line p{margin:0;font-size:14.5px;color:var(--text-2)}
+.portal-line p b{color:var(--text);font-weight:600}
+.portal-line a{color:var(--blue-bright);font-weight:600;font-size:14.5px;white-space:nowrap}
+.portal-line a:hover{text-decoration:underline}
   .hero-trust .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+  /* SITE-LAUNCH-1: store badges (official Apple / Google artwork, unmodified) */
+  .store-row{margin:-8px 0 24px}
+  .store-line{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);margin:0 0 12px}
+  .store-badges{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .store-badges-center{justify-content:center}
+  .store-badge{display:inline-block;line-height:0;border-radius:6px;transition:transform .18s var(--ease),opacity .18s var(--ease)}
+  .store-badge:hover{transform:translateY(-1px);opacity:.92}
 
   /* ---------- Phone + report signature ---------- */
   .stage{position:relative;height:560px}
@@ -157,8 +169,7 @@
     background:var(--bg);border-radius:32px;height:100%;overflow:hidden;position:relative;
     border:1px solid #0a0d10;
   }
-  .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#0a0d10;border-radius:0 0 16px 16px;z-index:5}
-  .app-top{padding:34px 16px 12px;border-bottom:1px solid var(--line)}
+  .app-top{padding:20px 16px 12px;border-bottom:1px solid var(--line)}
   .app-proj{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;color:var(--text);letter-spacing:-.01em}
   .app-meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-3);margin-top:3px;display:flex;gap:8px;align-items:center}
   .sync{display:inline-flex;align-items:center;gap:4px;color:var(--amber)}
@@ -387,7 +398,7 @@
     html{scroll-behavior:auto}
   }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FieldBinder AI","operatingSystem":"iOS","applicationCategory":"BusinessApplication","description":"FieldBinder AI captures photos, videos, notes, and voice memos by project and turns them into daily reports, punch lists, RFI lists, and executive summaries.","url":"https://fieldbinder.ai/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FieldBinder AI","operatingSystem":"iOS, Android","applicationCategory":"BusinessApplication","description":"FieldBinder AI captures photos, videos, notes, and voice memos by project and turns them into daily reports, punch lists, RFI lists, and executive summaries.","url":"https://fieldbinder.ai/"}</script>
 </head>
 <body>
 
@@ -395,7 +406,7 @@
 <header>
   <div class="wrap">
     <nav>
-      <a href="#" class="brand" aria-label="FieldBinder AI home">
+      <a href="index.html" class="brand" aria-label="FieldBinder AI home">
         <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" rx="7" fill="#2E80FF"/><g transform="translate(16 16) scale(0.18) translate(-80.75 -84)"><rect x="52" y="40" width="64" height="88" rx="10" fill="none" stroke="#fff" stroke-width="12"/><circle cx="52" cy="58" r="9" fill="none" stroke="#fff" stroke-width="7"/><circle cx="52" cy="84" r="9" fill="none" stroke="#fff" stroke-width="7"/><circle cx="52" cy="110" r="9" fill="none" stroke="#fff" stroke-width="7"/><rect x="70" y="60" width="34" height="9" rx="4" fill="#fff"/><rect x="70" y="78" width="34" height="9" rx="4" fill="#fff"/><path d="M92 92 C95 104 98 107 110 110 C98 113 95 116 92 128 C89 116 86 113 74 110 C86 107 89 104 92 92 Z" fill="#fff"/></g></svg>
         <span>FieldBinder<span class="ai"> AI</span></span>
       </a>
@@ -408,7 +419,7 @@
       </div>
       <div class="nav-cta">
         <a href="login.html" class="nav-login">Log in</a>
-        <a href="#join" class="btn btn-primary">Join Early Access</a>
+        <a href="#download" class="btn btn-primary">Download now</a>
         <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -435,15 +446,22 @@
         <h1>Capture the field.<br><span class="accent">Generate the report.</span></h1>
         <p class="hero-sub">FieldBinder AI captures photos, videos, notes, and voice memos directly into each project — then turns them into daily reports, punch lists, RFI lists, and executive summaries. Stop losing project details in your camera roll.</p>
         <div class="hero-cta">
-          <a href="#join" class="btn btn-primary">
-            Join Early Access
+          <a href="#download" class="btn btn-primary">
+            Download now
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="#how" class="btn btn-ghost">See how it works</a>
         </div>
+        <div class="store-row">
+          <p class="store-line">Now available on iPhone and Android</p>
+          <div class="store-badges">
+            <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+            <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
+          </div>
+        </div>
         <div class="hero-trust">
           <span class="dot"></span>
-          <span>iPhone-first · works offline in the field · syncs when you're back online</span>
+          <span>iPhone and Android · works offline in the field · syncs when you're back online</span>
         </div>
       </div>
 
@@ -451,7 +469,6 @@
         <!-- Phone: the field capture side -->
         <div class="phone">
           <div class="phone-screen">
-            <div class="notch"></div>
             <div class="app-top">
               <div class="app-proj">Riverside WWTP — Digester Rehab</div>
               <div class="app-meta">
@@ -551,7 +568,7 @@
     <div class="scatter reveal">
       <div class="chips">
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="chip-txt">Camera roll</span></div>
-        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><span class="chip-txt">Apple Notes</span></div>
+        <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><span class="chip-txt">Notes app</span></div>
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg><span class="chip-txt">Text threads</span></div>
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg><span class="chip-txt">Email</span></div>
         <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg><span class="chip-txt">OneDrive folders</span></div>
@@ -707,6 +724,10 @@
         </div>
       </div>
     </div>
+    <div class="portal-line reveal">
+      <p><b>Also on the web.</b> Capture in the field. Generate, review, and export from your desk — the web portal is live, and it uses your app account.</p>
+      <a href="login.html">Web portal sign-in →</a>
+    </div>
   </div>
 </section>
 
@@ -748,7 +769,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Basic project organization</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Limited storage</li>
         </ul>
-        <a href="#join" class="btn btn-ghost">Start free</a>
+        <a href="#download" class="btn btn-ghost">Start free</a>
       </div>
 
       <div class="plan featured">
@@ -763,7 +784,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Branded PDF export with your logo</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>More storage</li>
         </ul>
-        <a href="#join" class="btn btn-primary">Join Early Access</a>
+        <a href="#download" class="btn btn-primary">Download now</a>
       </div>
 
       <div class="plan">
@@ -776,7 +797,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Tags, filters & project feed</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Basic exports</li>
         </ul>
-        <a href="#join" class="btn btn-ghost">Start with Basic</a>
+        <a href="#download" class="btn btn-ghost">Start with Basic</a>
       </div>
     </div>
     <p class="team-note"><b>Team plan coming later</b> — shared projects, company workspaces, multi-user access, and admin controls. <a href="pricing.html" style="color:var(--blue-bright)">See full pricing & comparison →</a></p>
@@ -819,24 +840,18 @@
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="final" id="join">
+<section class="final" id="download">
+  <span id="join" aria-hidden="true"></span>
   <div class="grid-bg"></div>
   <div class="wrap">
     <div class="final-inner reveal">
-      <span class="eyebrow" style="justify-content:center">Early access</span>
+      <span class="eyebrow" style="justify-content:center">Download now</span>
       <h2>Capture the field.<br><span class="accent">Generate the report.</span></h2>
-      <p>Join the early access list. Be first to put FieldBinder AI on your next site visit — and help shape the reports it writes.</p>
-      <form class="signup" id="signupForm" name="early-access" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
-        <input type="hidden" name="form-name" value="early-access">
-        <p class="hidden-field" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <input type="email" id="email" name="email" placeholder="you@company.com" aria-label="Email address" required>
-        <button type="submit" class="btn btn-primary">Join Early Access</button>
-      </form>
-      <div class="success" id="successMsg">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-        You're on the list. We'll be in touch before launch.
+      <p>Now available on iPhone and Android.</p>
+      <div class="store-badges store-badges-center">
+        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
       </div>
-      <p class="signup-note" id="signupNote">No spam. Launch updates and early access only.</p>
     </div>
   </div>
 </section>
@@ -846,11 +861,15 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#" class="brand" aria-label="FieldBinder AI home">
+        <a href="index.html" class="brand" aria-label="FieldBinder AI home">
           <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" rx="7" fill="#2E80FF"/><g transform="translate(16 16) scale(0.18) translate(-80.75 -84)"><rect x="52" y="40" width="64" height="88" rx="10" fill="none" stroke="#fff" stroke-width="12"/><circle cx="52" cy="58" r="9" fill="none" stroke="#fff" stroke-width="7"/><circle cx="52" cy="84" r="9" fill="none" stroke="#fff" stroke-width="7"/><circle cx="52" cy="110" r="9" fill="none" stroke="#fff" stroke-width="7"/><rect x="70" y="60" width="34" height="9" rx="4" fill="#fff"/><rect x="70" y="78" width="34" height="9" rx="4" fill="#fff"/><path d="M92 92 C95 104 98 107 110 110 C98 113 95 116 92 128 C89 116 86 113 74 110 C86 107 89 104 92 92 Z" fill="#fff"/></g></svg>
           <span>FieldBinder<span class="ai"> AI</span></span>
         </a>
         <p>Turn field documentation into professional project reports. Your project memory, organized by job.</p>
+        <div class="foot-badges" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px">
+          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
+          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
+        </div>
       </div>
       <div class="foot-col">
         <h5>Product</h5>
@@ -863,7 +882,7 @@
       <div class="foot-col">
         <h5>Company</h5>
         <a href="about.html">About</a>
-        <a href="#join">Early access</a>
+        <a href="#download">Download</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
@@ -877,6 +896,7 @@
     <div class="foot-bottom">
       <p>© 2026 FieldBinder AI. All rights reserved.</p>
       <p class="foot-tagline">Capture the field. Generate the report.</p>
+      <p class="foot-marks" style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;color:var(--text-3);margin-top:10px;max-width:760px">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries. Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </div>
   </div>
 </footer>
@@ -888,25 +908,6 @@
   },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Early-access form (front-end only — wire to a real backend before launch)
-  const form = document.getElementById('signupForm');
-  const showSuccess = ()=>{
-    form.style.display='none';
-    document.getElementById('signupNote').style.display='none';
-    document.getElementById('successMsg').style.display='flex';
-  };
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const email = document.getElementById('email');
-    if(!email.value || !email.checkValidity()){ email.focus(); email.style.borderColor='var(--amber)'; return; }
-    // Submits to Netlify's native form handler; captures land in Netlify dashboard > Forms
-    fetch('/', {
-      method:'POST',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body:new URLSearchParams(new FormData(form)).toString()
-    }).then(showSuccess).catch(showSuccess);
-  });
-
   /* mobile nav toggle */
   (function(){
     var btn=document.querySelector('.menu-btn'),menu=document.getElementById('mobileMenu');
@@ -917,6 +918,15 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
     window.matchMedia('(min-width:681px)').addEventListener('change',function(e){if(e.matches)set(false);});
   })();
+</script>
+<script>
+  /* ===== iOS App Store URL of record (verified live 2026-09-11) =====
+     Verified live 2026-09-11 (SITE-LAUNCH-2) — this id resolves to the live listing:
+     https://apps.apple.com/us/app/fieldbinder-ai/id6792522520
+     Every App Store badge on this page reads its href from this one constant
+     (the static href on each badge carries the same value for no-JS crawlers). */
+  var APP_STORE_URL = 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520';
+  document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
 </script>
 </body>
 </html>
