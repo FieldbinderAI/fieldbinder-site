@@ -98,6 +98,11 @@
   .plan-price .amt{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;color:var(--text);line-height:1}
   .plan-price .per{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-3)}
   .plan-desc{color:var(--text-2);font-size:13.5px;margin-bottom:22px;min-height:40px}
+  .plan-trial{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--green);margin:-2px 0 12px}
+  .team-plan{max-width:600px;margin:28px auto 0;border:1px solid var(--line);border-radius:16px;padding:26px 28px;background:var(--bg-elev);text-align:center}
+  .team-plan .plan-price{justify-content:center}
+  .team-plan .plan-desc{min-height:0;margin-bottom:14px}
+  .team-plan .team-how{color:var(--text-3);font-size:13px;margin-bottom:18px}
   .plan-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px;flex-grow:1}
   .plan-feats li{display:flex;gap:10px;font-size:13.5px;color:var(--text-2);align-items:flex-start}
   .plan-feats svg{width:16px;height:16px;flex:none;margin-top:2px;stroke:var(--green)}
@@ -269,6 +274,7 @@
         <div class="plan-badge">MOST POPULAR</div>
         <div class="plan-name">Pro</div>
         <div class="plan-price"><span class="amt">$29</span><span class="per">/ month</span></div>
+        <div class="plan-trial">7-day free trial, then $29/month; cancel anytime</div>
         <div class="plan-desc">The full AI reporting engine for working professionals.</div>
         <ul class="plan-feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything in Basic, plus:</li>
@@ -295,7 +301,14 @@
         <a href="#download" class="btn btn-ghost">Start with Basic</a>
       </div>
     </div>
-    <p style="text-align:center;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-3)">All paid plans billed monthly · cancel anytime · <span style="color:var(--steel)">Team plan coming soon</span></p>
+    <p style="text-align:center;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-3)">All paid plans billed monthly · cancel anytime · <span style="color:var(--steel)">Team plans below</span></p>
+    <div class="team-plan reveal">
+      <div class="plan-name">Team</div>
+      <div class="plan-price"><span class="amt">$35</span><span class="per">/ seat / month</span></div>
+      <div class="plan-desc">3-seat minimum · $29 / seat / month billed annually. Shared projects, company workspaces, multi-user access, and admin controls.</div>
+      <p class="team-how">Team workspaces are set up by us — there is no self-serve Team purchase in the app yet.</p>
+      <a href="contact.html" class="btn btn-ghost">Contact us</a>
+    </div>
   </div>
 </section>
 
@@ -336,7 +349,7 @@
             <th><span class="pname">Free</span><span class="pprice">$0</span></th>
             <th><span class="pname">Basic</span><span class="pprice">$9.99/mo</span></th>
             <th class="hl"><span class="pname">Pro</span><span class="pprice">$29/mo</span></th>
-            <th><span class="pname">Team</span><span class="pprice">soon</span></th>
+            <th><span class="pname">Team</span><span class="pprice">$35/seat/mo</span></th>
           </tr>
         </thead>
         <tbody>
@@ -389,6 +402,10 @@
         <div class="ans">Paid subscriptions are in-app purchases handled by your phone's app store, so there's one place to manage or cancel — your store's subscription settings — with the payment method you already have on file.</div>
       </details>
       <details class="faq">
+        <summary>How does the Pro free trial work?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">New Pro subscribers get the first 7 days free. The trial converts to a paid $29/month subscription that auto-renews unless you cancel at least 24 hours before the trial ends. Manage or cancel it in your Apple ID or Google Play subscription settings — the same place as any other subscription. One trial per store account.</div>
+      </details>
+      <details class="faq">
         <summary>What counts against my storage?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
         <div class="ans">Photos, short videos, voice notes, and uploaded files. Text notes, tags, and reports are negligible. Short videos are capped at 30–60 seconds specifically to keep storage predictable — so a typical project stays light even with heavy photo documentation.</div>
       </details>
@@ -401,8 +418,8 @@
         <div class="ans">No. AI-generated reports are <b>editable drafts</b> — a fast first pass built from what you captured. You're responsible for reviewing every report for accuracy and completeness before sharing it. FieldBinder AI is a drafting assistant, not a licensed engineering, legal, safety, or compliance authority.</div>
       </details>
       <details class="faq">
-        <summary>When will the Team plan be available?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <div class="ans">Team — shared projects, company workspaces, multi-user access, and admin controls — is on the roadmap after the individual plans are established. We'll post launch pricing here the moment it opens.</div>
+        <summary>How does the Team plan work?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">Team is <b>$35 per seat per month</b> with a 3-seat minimum, or <b>$29 per seat per month billed annually</b>. It adds shared projects, company workspaces, multi-user access, and admin controls. There is no self-serve Team purchase in the app yet — <a href="contact.html">contact us</a> and we set up your workspace with you.</div>
       </details>
     </div>
   </div>
