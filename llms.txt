@@ -1,0 +1,45 @@
+# FieldBinder AI
+
+> Capture the field. Generate the report.
+
+FieldBinder AI is a field documentation and reporting app for project managers and field professionals. You capture photos, videos, text notes, voice memos, measurements, files, to-dos, punch items, customer decisions, safety observations, change requests and RFIs by project. Server-side AI turns those captures into report drafts that you review, edit and export as branded PDFs. It is not a construction management platform; it is the project memory and the report generator.
+
+## Who it is for
+
+Industrial project managers, facility and maintenance leaders, engineering consultants, contractors and owner's reps.
+
+## Report types
+
+- Daily report
+- Punch list
+- RFI list
+- Executive summary
+
+## Platforms
+
+- iPhone: https://apps.apple.com/us/app/fieldbinder-ai/id6792522520
+- Android: https://play.google.com/store/apps/details?id=ai.fieldbinder.app
+- Web portal (review projects, edit reports, export PDFs): https://app.fieldbinder.ai
+- Capture works offline and syncs when a connection returns.
+
+## Pricing (USD)
+
+- Free: 2 projects, no AI, no branded PDF.
+- Basic $9.99/mo: capture + copy-text export. No AI.
+- Pro $29/mo: all AI + branded PDF. 7-day free trial.
+- Team: $35/seat/mo, 3-seat minimum, or $29/seat/mo billed annually. Contact us; no self-serve Team purchase.
+
+## Pages
+
+- Features: https://fieldbinder.ai/features
+- Use cases: https://fieldbinder.ai/use-cases
+- Pricing: https://fieldbinder.ai/pricing
+- Security: https://fieldbinder.ai/security
+- About: https://fieldbinder.ai/about
+- Privacy: https://fieldbinder.ai/privacy
+- Terms: https://fieldbinder.ai/terms
+
+## Company
+
+- FieldBinder AI LLC (Ohio, United States). Founder: Steve Burton.
+- Contact: contact@fieldbinder.ai

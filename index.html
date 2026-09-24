@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9CFB4WC53K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9CFB4WC53K');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FieldBinder AI — Capture the field. Generate the report.</title>
-<meta name="description" content="FieldBinder AI turns messy field documentation into organized, professional project reports. Capture photos, videos, notes, and voice memos by project. Generate daily reports, punch lists, RFI lists, and executive summaries with AI.">
+<meta name="description" content="Field documentation app for project managers. Capture photos, notes and voice memos by project; generate daily reports, punch lists and RFIs with AI.">
 <link rel="canonical" href="https://fieldbinder.ai/">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -13,14 +21,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FieldBinder AI">
 <meta property="og:title" content="FieldBinder AI — Capture the field. Generate the report.">
-<meta property="og:description" content="FieldBinder AI turns messy field documentation into organized, professional project reports. Capture photos, videos, notes, and voice memos by project. Generate daily reports, punch lists, RFI lists, and executive summaries with AI.">
+<meta property="og:description" content="Field documentation app for project managers. Capture photos, notes and voice memos by project; generate daily reports, punch lists and RFIs with AI.">
 <meta property="og:url" content="https://fieldbinder.ai/">
 <meta property="og:image" content="https://fieldbinder.ai/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FieldBinder AI — Capture the field. Generate the report.">
-<meta name="twitter:description" content="FieldBinder AI turns messy field documentation into organized, professional project reports. Capture photos, videos, notes, and voice memos by project. Generate daily reports, punch lists, RFI lists, and executive summaries with AI.">
+<meta name="twitter:description" content="Field documentation app for project managers. Capture photos, notes and voice memos by project; generate daily reports, punch lists and RFIs with AI.">
 <meta name="twitter:image" content="https://fieldbinder.ai/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -365,6 +373,17 @@
   .foot-bottom p{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-3);letter-spacing:.02em}
   .foot-tagline{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--steel);letter-spacing:.04em}
 
+  /* ---------- FAQ (mirrors pricing.html) ---------- */
+  .faq-wrap{max-width:820px;margin:0 auto}
+  details.faq{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:var(--bg-elev);overflow:hidden}
+  details.faq[open]{border-color:var(--line-bright)}
+  details.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:16px;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary .ic{width:20px;height:20px;flex:none;stroke:var(--blue-bright);transition:transform .2s var(--ease)}
+  details.faq[open] summary .ic{transform:rotate(45deg)}
+  details.faq .ans{padding:0 24px 22px;color:var(--text-2);font-size:14.5px;line-height:1.65}
+  details.faq .ans b{color:var(--text)}
+
   /* ---------- Reveal animation ---------- */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .reveal.in{opacity:1;transform:none}
@@ -398,7 +417,139 @@
     html{scroll-behavior:auto}
   }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"FieldBinder AI","operatingSystem":"iOS, Android","applicationCategory":"BusinessApplication","description":"FieldBinder AI captures photos, videos, notes, and voice memos by project and turns them into daily reports, punch lists, RFI lists, and executive summaries.","url":"https://fieldbinder.ai/"}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://fieldbinder.ai/#organization",
+      "name": "FieldBinder AI",
+      "legalName": "FieldBinder AI LLC",
+      "url": "https://fieldbinder.ai/",
+      "logo": "https://fieldbinder.ai/og-image.png",
+      "sameAs": [
+        "https://apps.apple.com/us/app/fieldbinder-ai/id6792522520",
+        "https://play.google.com/store/apps/details?id=ai.fieldbinder.app",
+        "https://github.com/FieldbinderAI"
+      ],
+      "founder": {
+        "@id": "https://fieldbinder.ai/#founder"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://fieldbinder.ai/#founder",
+      "name": "Steve Burton",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://www.linkedin.com/in/stevejburton-pmp"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://fieldbinder.ai/#website",
+      "name": "FieldBinder AI",
+      "url": "https://fieldbinder.ai/",
+      "publisher": {
+        "@id": "https://fieldbinder.ai/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://fieldbinder.ai/#app",
+      "name": "FieldBinder AI",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "BusinessApplication",
+      "description": "FieldBinder AI captures photos, videos, notes, and voice memos by project and turns them into daily reports, punch lists, RFI lists, and executive summaries.",
+      "url": "https://fieldbinder.ai/",
+      "author": {
+        "@id": "https://fieldbinder.ai/#organization"
+      },
+      "downloadUrl": [
+        "https://apps.apple.com/us/app/fieldbinder-ai/id6792522520",
+        "https://play.google.com/store/apps/details?id=ai.fieldbinder.app"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": 0,
+          "priceCurrency": "USD",
+          "description": "2 active projects; no AI reports; no branded PDF export."
+        },
+        {
+          "@type": "Offer",
+          "name": "Basic",
+          "price": 9.99,
+          "priceCurrency": "USD",
+          "description": "$9.99 per month."
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": 29,
+          "priceCurrency": "USD",
+          "description": "$29 per month; 7-day free trial."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is FieldBinder AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A field documentation and reporting app for project managers and field professionals. You capture photos, videos, notes, voice memos, measurements, punch items and RFIs by project; AI turns them into daily reports, punch lists, RFI lists and executive summaries you review, edit and export as branded PDFs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is it for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Industrial project managers, facility and maintenance leaders, engineering consultants, contractors and owner's reps. It is not a full construction management platform; it is the project memory and the report generator."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Capture works without a connection and syncs when you are back online."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which phones does it run on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iPhone and Android, with a web portal for reviewing projects, editing reports and exporting PDFs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the AI reports accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are drafts generated from your own captures. You review and edit every report before you send it; you are responsible for its accuracy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my data stored and who can see it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In your private project workspace on secure cloud infrastructure. Only you and the teammates you invite can see a project. You can delete your account and its data from within the app."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -453,7 +604,7 @@
           <a href="#how" class="btn btn-ghost">See how it works</a>
         </div>
         <div class="store-row">
-          <p class="store-line">Now available on iPhone and Android</p>
+          <p class="store-line">The field report app, now available on iPhone and Android</p>
           <div class="store-badges">
             <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
             <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
@@ -737,7 +888,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Where it's used</span>
       <h2>Made for people who walk the site.</h2>
-      <p>If your work involves site visits, field conditions, and documentation that has to become reports, FieldBinder AI fits. <a href="use-cases.html" style="color:var(--blue-bright)">Explore each role in depth →</a></p>
+      <p>Built for industrial, facility and construction project teams: PMs, owner's reps, maintenance leaders and consultants. If your work involves site visits, field conditions, and documentation that has to become reports, FieldBinder AI fits. <a href="use-cases.html" style="color:var(--blue-bright)">Explore each role in depth →</a></p>
     </div>
     <div class="uc-grid reveal">
       <div class="uc"><div class="uc-num">01</div><h3>Industrial & plant projects</h3><p>Rehabs, shutdowns, and capital work inside plants, data centers, and facilities where signal is poor and documentation is constant.</p></div>
@@ -835,6 +986,42 @@
         <p><b style="color:var(--text)">AI-generated reports are editable drafts.</b> Users are responsible for reviewing all generated content for accuracy, completeness, and suitability before sharing or relying on it.</p>
         <p>FieldBinder AI is a documentation and drafting assistant — not a licensed engineering, legal, safety, or compliance authority. It helps you capture and organize field information and produce first-draft reports faster. Final judgment on any project decision stays with you and your team.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" style="background:var(--bg-elev);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Questions</span>
+      <h2>Common questions, plainly answered.</h2>
+    </div>
+    <div class="faq-wrap reveal">
+      <details class="faq">
+        <summary>What is FieldBinder AI?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">A field documentation and reporting app for project managers and field professionals. You capture photos, videos, notes, voice memos, measurements, punch items and RFIs by project; AI turns them into daily reports, punch lists, RFI lists and executive summaries you review, edit and export as branded PDFs.</div>
+      </details>
+      <details class="faq">
+        <summary>Who is it for?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">Industrial project managers, facility and maintenance leaders, engineering consultants, contractors and owner's reps. It is not a full construction management platform; it is the project memory and the report generator.</div>
+      </details>
+      <details class="faq">
+        <summary>Does it work offline?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">Yes. Capture works without a connection and syncs when you are back online.</div>
+      </details>
+      <details class="faq">
+        <summary>Which phones does it run on?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">iPhone and Android, with a web portal for reviewing projects, editing reports and exporting PDFs.</div>
+      </details>
+      <details class="faq">
+        <summary>Are the AI reports accurate?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">They are drafts generated from your own captures. You review and edit every report before you send it; you are responsible for its accuracy.</div>
+      </details>
+      <details class="faq">
+        <summary>Where is my data stored and who can see it?<svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="ans">In your private project workspace on secure cloud infrastructure. Only you and the teammates you invite can see a project. You can delete your account and its data from within the app.</div>
+      </details>
     </div>
   </div>
 </section>
