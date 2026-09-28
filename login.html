@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Log in to the web portal — FieldBinder AI</title>
-<meta name="description" content="The FieldBinder AI web portal is live. Sign in with your app account to browse projects and captures, generate and edit reports, and export branded PDFs from your desk.">
+<meta name="description" content="Sign in to the FieldBinder AI web portal to review projects, edit reports, export branded PDFs, and manage your company settings and billing.">
 <link rel="canonical" href="https://fieldbinder.ai/login">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -21,14 +21,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FieldBinder AI">
 <meta property="og:title" content="Log in to the web portal — FieldBinder AI">
-<meta property="og:description" content="The FieldBinder AI web portal is live. Sign in with your app account to browse projects and captures, generate and edit reports, and export branded PDFs from your desk.">
+<meta property="og:description" content="Sign in to the FieldBinder AI web portal to review projects, edit reports, export branded PDFs, and manage your company settings and billing.">
 <meta property="og:url" content="https://fieldbinder.ai/login">
 <meta property="og:image" content="https://fieldbinder.ai/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Log in to the web portal — FieldBinder AI">
-<meta name="twitter:description" content="The FieldBinder AI web portal is live. Sign in with your app account to browse projects and captures, generate and edit reports, and export branded PDFs from your desk.">
+<meta name="twitter:description" content="Sign in to the FieldBinder AI web portal to review projects, edit reports, export branded PDFs, and manage your company settings and billing.">
 <meta name="twitter:image" content="https://fieldbinder.ai/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -261,6 +261,20 @@
      (the static href on each badge carries the same value for no-JS crawlers). */
   var APP_STORE_URL = 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520';
   document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
+</script>
+<script>
+  /* SEO-2A: GA4 key events — no PII in any parameter */
+  (function(){
+    if(typeof gtag!=='function')return;
+    var path=location.pathname;
+    document.addEventListener('click',function(e){
+      var t=e.target&&e.target.closest?e.target:null;if(!t)return;
+      var badge=t.closest('a.store-badge[data-store]');
+      if(badge){gtag('event','store_badge_click',{store:badge.getAttribute('data-store')==='ios'?'apple':'google',page_path:path});return;}
+      var cta=t.closest('a[data-plan]');
+      if(cta){gtag('event','pricing_cta_click',{plan:cta.getAttribute('data-plan'),page_path:path});}
+    });
+  })();
 </script>
 </body>
 </html>

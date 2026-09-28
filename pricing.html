@@ -465,7 +465,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Offline capture & sync</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Limited storage</li>
         </ul>
-        <a href="#download" class="btn btn-ghost">Start free</a>
+        <a href="#download" class="btn btn-ghost" data-plan="free">Start free</a>
       </div>
 
       <div class="plan featured">
@@ -482,7 +482,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Branded PDF export with your logo</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Expanded storage</li>
         </ul>
-        <a href="#download" class="btn btn-primary">Download now</a>
+        <a href="#download" class="btn btn-primary" data-plan="pro">Download now</a>
       </div>
 
       <div class="plan">
@@ -496,7 +496,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Copy & email-ready report text</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Standard storage</li>
         </ul>
-        <a href="#download" class="btn btn-ghost">Start with Basic</a>
+        <a href="#download" class="btn btn-ghost" data-plan="basic">Start with Basic</a>
       </div>
     </div>
     <p style="text-align:center;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-3)">All paid plans billed monthly · cancel anytime · <span style="color:var(--steel)">Team plans below</span></p>
@@ -505,7 +505,7 @@
       <div class="plan-price"><span class="amt">$35</span><span class="per">/ seat / month</span></div>
       <div class="plan-desc">3-seat minimum · $29 / seat / month billed annually. Shared projects, company workspaces, multi-user access, and admin controls.</div>
       <p class="team-how">Team workspaces are set up by us — there is no self-serve Team purchase in the app yet.</p>
-      <a href="contact.html" class="btn btn-ghost">Contact us</a>
+      <a href="contact.html" class="btn btn-ghost" data-plan="team">Contact us</a>
     </div>
   </div>
 </section>
@@ -726,6 +726,20 @@
      (the static href on each badge carries the same value for no-JS crawlers). */
   var APP_STORE_URL = 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520';
   document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
+</script>
+<script>
+  /* SEO-2A: GA4 key events — no PII in any parameter */
+  (function(){
+    if(typeof gtag!=='function')return;
+    var path=location.pathname;
+    document.addEventListener('click',function(e){
+      var t=e.target&&e.target.closest?e.target:null;if(!t)return;
+      var badge=t.closest('a.store-badge[data-store]');
+      if(badge){gtag('event','store_badge_click',{store:badge.getAttribute('data-store')==='ios'?'apple':'google',page_path:path});return;}
+      var cta=t.closest('a[data-plan]');
+      if(cta){gtag('event','pricing_cta_click',{plan:cta.getAttribute('data-plan'),page_path:path});}
+    });
+  })();
 </script>
 </body>
 </html>

@@ -9,8 +9,14 @@ import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://fieldbinder.ai';
-// Pages in the sitemap (thank-you.html is a form landing page and stays out).
-const PAGES = ['index', 'about', 'contact', 'delete-account', 'dmca', 'features', 'login', 'pricing', 'privacy', 'security', 'terms', 'use-cases'];
+// Pages in the sitemap (thank-you.html is a form landing page, and the noindex
+// /resources/ hub + its article template stay out).
+const PAGES = [
+  'index', 'about', 'contact', 'delete-account', 'dmca', 'features', 'login',
+  'pricing', 'privacy', 'security', 'terms', 'use-cases',
+  'use-cases/project-managers', 'use-cases/engineering-consultants',
+  'use-cases/contractors', 'use-cases/owners-reps', 'use-cases/facility-maintenance',
+];
 
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
 const today = new Date().toISOString().slice(0, 10);
@@ -18,7 +24,10 @@ const today = new Date().toISOString().slice(0, 10);
 const entries = PAGES.map((slug) => {
   const file = `${slug}.html`;
   const dirty = git('status', '--porcelain', '--', file) !== '';
-  const committed = git('log', '-1', '--format=%cs', '--', file);
+  // %ct = committer date as a unix timestamp → formatted in UTC, so committed and dirty
+  // pages share one clock (%cs used the commit's local offset and could lag UTC by a day).
+  const committedUnix = git('log', '-1', '--format=%ct', '--', file);
+  const committed = committedUnix ? new Date(Number(committedUnix) * 1000).toISOString().slice(0, 10) : '';
   const lastmod = dirty || !committed ? today : committed;
   const loc = slug === 'index' ? `${SITE}/` : `${SITE}/${slug}`;
   return { loc, lastmod };

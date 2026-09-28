@@ -1,3 +1,22 @@
+<!--
+  TEMPLATE FILE — NOT A PUBLISHED PAGE.
+  This is the shell for a resources/ article. Copy it to a real filename under
+  resources/ (e.g. resources/daily-field-report-template.html) and replace every
+  {{MUSTACHE}} placeholder below:
+    {{TITLE}}            - article title (also used in <title>, og:title, twitter:title,
+                            the JSON-LD Article headline, and the h1)
+    {{DESCRIPTION}}       - meta description (also og:description, twitter:description,
+                            and the JSON-LD Article description)
+    {{SLUG}}              - filename slug, no extension (canonical becomes
+                            https://fieldbinder.ai/resources/{{SLUG}})
+    {{DATE_ISO}}          - YYYY-MM-DD, used in datetime attr + JSON-LD dates
+    {{DATE_HUMAN}}        - human-readable date shown in the byline
+    {{BODY}}              - the article HTML (h2/p/ul etc.)
+    {{TEMPLATE_NAME}}     - the downloadable template's display name
+    {{TEMPLATE_URL}}      - the download href for the template file
+    {{RELATED_PERSONAS}}  - an <ul> of related persona links
+  Remove the SEO-2B noindex meta (see the head) when the article is ready to publish.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,24 +30,26 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Use Cases | FieldBinder AI</title>
-<meta name="description" content="FieldBinder AI for project managers, engineering consultants, contractors, owner's reps, and facility teams. Capture the field. Generate the report.">
-<link rel="canonical" href="https://fieldbinder.ai/use-cases">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<!-- SEO-2B: remove noindex when publishing a real article -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://fieldbinder.ai/resources/{{SLUG}}">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="FieldBinder AI">
-<meta property="og:title" content="Use Cases | FieldBinder AI">
-<meta property="og:description" content="FieldBinder AI for project managers, engineering consultants, contractors, owner's reps, and facility teams. Capture the field. Generate the report.">
-<meta property="og:url" content="https://fieldbinder.ai/use-cases">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="https://fieldbinder.ai/resources/{{SLUG}}">
 <meta property="og:image" content="https://fieldbinder.ai/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Use Cases | FieldBinder AI">
-<meta name="twitter:description" content="FieldBinder AI for project managers, engineering consultants, contractors, owner's reps, and facility teams. Capture the field. Generate the report.">
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
 <meta name="twitter:image" content="https://fieldbinder.ai/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -158,13 +179,16 @@
     .foot-grid{grid-template-columns:1fr}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
-  /* SEO-2A */
-  .persona-grid{display:grid;grid-template-columns:1fr;gap:22px}
-  .persona-card{background:var(--bg-elev);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .persona-card h2{font-family:'Space Grotesk',sans-serif;font-size:24px;margin:10px 0}
-  .persona-link{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--blue-bright)}
-  @media(min-width:680px){.persona-grid{grid-template-columns:1fr 1fr}}
 
+  /* SEO-2A */
+  .article{max-width:760px;margin:0 auto}
+  .article h2{font-size:clamp(22px,2.8vw,28px);margin:36px 0 14px}
+  .article p{color:var(--text-2);font-size:16px;margin-bottom:18px;line-height:1.75}
+  .byline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--text-3);font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;margin:18px 0 40px}
+  .byline time{color:var(--text-3)}
+  .download-block{background:var(--bg-elev);border:1px solid var(--line-bright);border-radius:var(--radius);padding:28px;margin:40px 0}
+  .download-block h2{margin-top:0}
+  .download-block p{margin-bottom:18px}
 </style>
 <script type="application/ld+json">
 {
@@ -205,48 +229,6 @@
       }
     },
     {
-      "@type": "CollectionPage",
-      "@id": "https://fieldbinder.ai/use-cases#webpage",
-      "url": "https://fieldbinder.ai/use-cases",
-      "name": "Use Cases | FieldBinder AI",
-      "description": "FieldBinder AI for project managers, engineering consultants, contractors, owner's reps, and facility teams. Capture the field. Generate the report.",
-      "isPartOf": {
-        "@id": "https://fieldbinder.ai/#website"
-      },
-      "hasPart": [
-        {
-          "@type": "WebPage",
-          "@id": "https://fieldbinder.ai/use-cases/project-managers#webpage",
-          "url": "https://fieldbinder.ai/use-cases/project-managers",
-          "name": "Field documentation for project managers"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://fieldbinder.ai/use-cases/engineering-consultants#webpage",
-          "url": "https://fieldbinder.ai/use-cases/engineering-consultants",
-          "name": "Site visit documentation for engineering consultants"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://fieldbinder.ai/use-cases/contractors#webpage",
-          "url": "https://fieldbinder.ai/use-cases/contractors",
-          "name": "Daily reports and punch lists for contractors"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://fieldbinder.ai/use-cases/owners-reps#webpage",
-          "url": "https://fieldbinder.ai/use-cases/owners-reps",
-          "name": "Site visit reports for owner's representatives"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://fieldbinder.ai/use-cases/facility-maintenance#webpage",
-          "url": "https://fieldbinder.ai/use-cases/facility-maintenance",
-          "name": "Inspection and maintenance documentation for facility teams"
-        }
-      ]
-    },
-    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -258,10 +240,32 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Use Cases",
-          "item": "https://fieldbinder.ai/use-cases"
+          "name": "Resources",
+          "item": "https://fieldbinder.ai/resources/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{TITLE}}",
+          "item": "https://fieldbinder.ai/resources/{{SLUG}}"
         }
       ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://fieldbinder.ai/resources/{{SLUG}}#article",
+      "headline": "{{TITLE}}",
+      "description": "{{DESCRIPTION}}",
+      "datePublished": "{{DATE_ISO}}",
+      "dateModified": "{{DATE_ISO}}",
+      "author": {
+        "@id": "https://fieldbinder.ai/#founder"
+      },
+      "publisher": {
+        "@id": "https://fieldbinder.ai/#organization"
+      },
+      "mainEntityOfPage": "https://fieldbinder.ai/resources/{{SLUG}}",
+      "image": "https://fieldbinder.ai/og-image.png"
     }
   ]
 }
@@ -279,7 +283,7 @@
       </a>
       <div class="nav-links">
         <a href="/features">Features</a>
-        <a href="/use-cases" class="active">Use cases</a>
+        <a href="/use-cases">Use cases</a>
         <a href="/#reports">Reports</a>
         <a href="/pricing">Pricing</a>
         <a href="/security">Security</a>
@@ -301,53 +305,27 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="u-hero">
-  <div class="grid-bg"></div>
+<!-- ARTICLE -->
+<section class="ucs" style="border-top:none">
   <div class="wrap">
-    <div class="inner">
-      <span class="eyebrow">Use cases</span>
-      <h1>Made for people who <span class="accent">walk the site.</span></h1>
-      <p>If your work involves site visits, field conditions, and documentation that has to become reports — FieldBinder AI fits. Find your role below.</p>
-    </div>
-  </div>
-</section>
+    <article class="article reveal">
+      <h1>{{TITLE}}</h1>
+      <div class="byline">
+        <span>By Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects</span>
+        <time datetime="{{DATE_ISO}}">{{DATE_HUMAN}}</time>
+      </div>
 
-<!-- PERSONA HUB -->
-<section class="section" id="personas">
-  <div class="wrap">
-    <div class="persona-grid reveal">
-      <article class="persona-card">
-        <span class="ucs-num">01 · Project managers</span>
-        <h2><a href="/use-cases/project-managers">Field documentation for project managers</a></h2>
-        <p>You already carry the project in your head and in your camera roll.</p>
-        <a class="persona-link" href="/use-cases/project-managers">See how it works for project managers →</a>
-      </article>
-      <article class="persona-card">
-        <span class="ucs-num">02 · Engineering consultants</span>
-        <h2><a href="/use-cases/engineering-consultants">Site visit documentation for engineering consultants</a></h2>
-        <p>A site walk produces a hundred photos and a page of shorthand.</p>
-        <a class="persona-link" href="/use-cases/engineering-consultants">See how it works for engineering consultants →</a>
-      </article>
-      <article class="persona-card">
-        <span class="ucs-num">03 · Contractors</span>
-        <h2><a href="/use-cases/contractors">Daily reports and punch lists for contractors</a></h2>
-        <p>The daily report should not be a second shift.</p>
-        <a class="persona-link" href="/use-cases/contractors">See how it works for contractors →</a>
-      </article>
-      <article class="persona-card">
-        <span class="ucs-num">04 · Owner's representatives</span>
-        <h2><a href="/use-cases/owners-reps">Site visit reports for owner's representatives</a></h2>
-        <p>The owner wants to know what happened, what is open, and what needs a decision.</p>
-        <a class="persona-link" href="/use-cases/owners-reps">See how it works for owner's representatives →</a>
-      </article>
-      <article class="persona-card">
-        <span class="ucs-num">05 · Facility & maintenance teams</span>
-        <h2><a href="/use-cases/facility-maintenance">Inspection and maintenance documentation for facility teams</a></h2>
-        <p>Rounds, inspections, and shutdown walkdowns generate findings that get lost between the phone and the CMMS.</p>
-        <a class="persona-link" href="/use-cases/facility-maintenance">See how it works for facility & maintenance teams →</a>
-      </article>
-    </div>
+      {{BODY}}
+
+      <div class="download-block">
+        <h2>Download the template</h2>
+        <p>Use this template on your next site visit, or capture it directly in FieldBinder AI.</p>
+        <a class="btn btn-primary" href="{{TEMPLATE_URL}}" download>Download {{TEMPLATE_NAME}}</a>
+      </div>
+
+      <h2>Related</h2>
+      {{RELATED_PERSONAS}}
+    </article>
   </div>
 </section>
 
@@ -357,14 +335,14 @@
   <div class="wrap">
     <div class="final-inner reveal">
       <span class="eyebrow" style="justify-content:center">Get started</span>
-      <h2>See your role above?<br><span class="accent">This was built for you.</span></h2>
+      <h2>Ready to see it <span class="accent">in the field?</span></h2>
       <p>Now available on iPhone and Android.</p>
       <div class="store-badges" style="display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:22px">
         <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
         <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
       </div>
       <div class="btn-row">
-        <a href="/features" class="btn btn-ghost">Explore the features</a>
+        <a href="/pricing" class="btn btn-ghost">See pricing</a>
       </div>
     </div>
   </div>
@@ -438,10 +416,6 @@
      (the static href on each badge carries the same value for no-JS crawlers). */
   var APP_STORE_URL = 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520';
   document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
-</script>
-<script>
-  /* SEO-2A: old in-page anchors → persona pages (fragments never reach the server, so this cannot be a _redirects rule) */
-  var m={industrial:'/use-cases/project-managers',facility:'/use-cases/facility-maintenance',consultants:'/use-cases/engineering-consultants',contractors:'/use-cases/contractors','owners-reps':'/use-cases/owners-reps',sales:'/use-cases/contractors'};var h=location.hash.replace('#','');if(m[h])location.replace(m[h]);
 </script>
 <script>
   /* SEO-2A: GA4 key events — no PII in any parameter */

@@ -372,7 +372,7 @@
     });
     if(!valid) return;
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
-      .then(()=>{form.style.display='none';document.getElementById('successMsg').style.display='flex';})
+      .then((r)=>{if(r&&r.ok&&typeof gtag==='function'){gtag('event','lead_submit',{form:'contact',page_path:location.pathname});}form.style.display='none';document.getElementById('successMsg').style.display='flex';})
       .catch(()=>{form.style.display='none';document.getElementById('successMsg').style.display='flex';});
   });
 
@@ -395,6 +395,20 @@
      (the static href on each badge carries the same value for no-JS crawlers). */
   var APP_STORE_URL = 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520';
   document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
+</script>
+<script>
+  /* SEO-2A: GA4 key events — no PII in any parameter */
+  (function(){
+    if(typeof gtag!=='function')return;
+    var path=location.pathname;
+    document.addEventListener('click',function(e){
+      var t=e.target&&e.target.closest?e.target:null;if(!t)return;
+      var badge=t.closest('a.store-badge[data-store]');
+      if(badge){gtag('event','store_badge_click',{store:badge.getAttribute('data-store')==='ios'?'apple':'google',page_path:path});return;}
+      var cta=t.closest('a[data-plan]');
+      if(cta){gtag('event','pricing_cta_click',{plan:cta.getAttribute('data-plan'),page_path:path});}
+    });
+  })();
 </script>
 </body>
 </html>
