@@ -14,6 +14,18 @@
   <title>Delete Your Account - FieldBinder AI</title>
   <meta name="description" content="How to delete your FieldBinder AI account and data, what is deleted, and how long deletion takes.">
   <link rel="canonical" href="https://fieldbinder.ai/delete-account">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FieldBinder AI">
+  <meta property="og:title" content="Delete your FieldBinder AI account">
+  <meta property="og:description" content="How to delete your FieldBinder AI account and what happens to your projects, captures, and reports after deletion.">
+  <meta property="og:url" content="https://fieldbinder.ai/delete-account">
+  <meta property="og:image" content="https://fieldbinder.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Delete your FieldBinder AI account">
+  <meta name="twitter:description" content="How to delete your FieldBinder AI account and what happens to your projects, captures, and reports after deletion.">
+  <meta name="twitter:image" content="https://fieldbinder.ai/og-image.png">
   <meta name="robots" content="index,follow">
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -136,5 +148,19 @@
     <p>For full details on how we handle your information, see our <a href="/privacy">Privacy Policy</a>.</p>
   </div></main>
   <footer><div class="wrap"><p>&copy; 2026 FieldBinder AI LLC &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/dmca">DMCA</a> &middot; <a href="mailto:contact@fieldbinder.ai">contact@fieldbinder.ai</a></p></div></footer>
+<script>
+  /* SEO-2A: GA4 key events — no PII in any parameter */
+  (function(){
+    if(typeof gtag!=='function')return;
+    var path=location.pathname;
+    document.addEventListener('click',function(e){
+      var t=e.target&&e.target.closest?e.target:null;if(!t)return;
+      var badge=t.closest('a.store-badge[data-store]');
+      if(badge){gtag('event','store_badge_click',{store:badge.getAttribute('data-store')==='ios'?'apple':'google',page_path:path});return;}
+      var cta=t.closest('a[data-plan]');
+      if(cta){gtag('event','pricing_cta_click',{plan:cta.getAttribute('data-plan'),page_path:path});}
+    });
+  })();
+</script>
 </body>
 </html>

@@ -12,3 +12,12 @@
 /terms.html /terms 301!
 /thank-you.html /thank-you 301!
 /use-cases.html /use-cases 301!
+# SEO-2A: persona pages (use-cases/<slug>.html) and the resources hub follow the same .html -> clean-URL pattern
+/use-cases/project-managers.html /use-cases/project-managers 301!
+/use-cases/engineering-consultants.html /use-cases/engineering-consultants 301!
+/use-cases/contractors.html /use-cases/contractors 301!
+/use-cases/owners-reps.html /use-cases/owners-reps 301!
+/use-cases/facility-maintenance.html /use-cases/facility-maintenance 301!
+/resources/index.html /resources/ 301!
+# SEO-2A: the article template is a scaffold with placeholders, not a page - never serve it (SEO-2B instantiates real articles from it)
+/resources/_template-article.html /resources/index.html 404!

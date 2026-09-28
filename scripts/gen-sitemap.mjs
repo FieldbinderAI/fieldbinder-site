@@ -9,8 +9,14 @@ import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://fieldbinder.ai';
-// Pages in the sitemap (thank-you.html is a form landing page and stays out).
-const PAGES = ['index', 'about', 'contact', 'delete-account', 'dmca', 'features', 'login', 'pricing', 'privacy', 'security', 'terms', 'use-cases'];
+// Pages in the sitemap (thank-you.html is a form landing page, and the noindex
+// /resources/ hub + its article template stay out).
+const PAGES = [
+  'index', 'about', 'contact', 'delete-account', 'dmca', 'features', 'login',
+  'pricing', 'privacy', 'security', 'terms', 'use-cases',
+  'use-cases/project-managers', 'use-cases/engineering-consultants',
+  'use-cases/contractors', 'use-cases/owners-reps', 'use-cases/facility-maintenance',
+];
 
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
 const today = new Date().toISOString().slice(0, 10);

@@ -179,13 +179,18 @@
       "@id": "https://fieldbinder.ai/#founder",
       "name": "Steve Burton",
       "jobTitle": "Founder",
+      "honorificSuffix": "PMP",
       "sameAs": [
         "https://www.linkedin.com/in/stevejburton-pmp"
       ],
       "worksFor": {
         "@id": "https://fieldbinder.ai/#organization"
       },
-      "description": "Founder of FieldBinder AI. 15+ years in industrial and facility project management. Medina, Ohio."
+      "description": "Founder of FieldBinder AI, PMP. 19+ years in plant engineering, maintenance, and capital projects. Based in Ohio.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "OH"
+      }
     },
     {
       "@type": "WebSite",
@@ -272,6 +277,7 @@
       <div class="pull">Project information gets scattered across phones, texts, emails, folders, notebooks, and memory — and the project pays for it later.</div>
       <p>The tools that existed were built for big construction programs — heavy platforms with modules, seats, and setup projects of their own. Nothing was built for the individual professional who just needs to <b>capture project details once, keep them organized by job, and get a clean report out the other side.</b></p>
       <p>So that's what got built. FieldBinder AI is for people who actually walk sites, manage project details, and need professional documentation — without adopting an enterprise platform to get it.</p>
+      <p class="byline" style="margin-top:22px;color:var(--text-2)">FieldBinder AI was built by Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects, based in Ohio.</p>
     </div>
   </div>
 </section>
@@ -429,6 +435,20 @@
      (the static href on each badge carries the same value for no-JS crawlers). */
   var APP_STORE_URL = 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520';
   document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
+</script>
+<script>
+  /* SEO-2A: GA4 key events — no PII in any parameter */
+  (function(){
+    if(typeof gtag!=='function')return;
+    var path=location.pathname;
+    document.addEventListener('click',function(e){
+      var t=e.target&&e.target.closest?e.target:null;if(!t)return;
+      var badge=t.closest('a.store-badge[data-store]');
+      if(badge){gtag('event','store_badge_click',{store:badge.getAttribute('data-store')==='ios'?'apple':'google',page_path:path});return;}
+      var cta=t.closest('a[data-plan]');
+      if(cta){gtag('event','pricing_cta_click',{plan:cta.getAttribute('data-plan'),page_path:path});}
+    });
+  })();
 </script>
 </body>
 </html>
