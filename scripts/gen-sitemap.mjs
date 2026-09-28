@@ -16,7 +16,7 @@ const PAGES = [
   'pricing', 'privacy', 'security', 'terms', 'use-cases',
   'use-cases/project-managers', 'use-cases/engineering-consultants',
   'use-cases/contractors', 'use-cases/owners-reps', 'use-cases/facility-maintenance',
-  'resources/', 'resources/how-to-write-a-daily-field-report',
+  'resources/', 'resources/how-to-write-a-daily-field-report', 'resources/punch-list-template',
 ];
 
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
