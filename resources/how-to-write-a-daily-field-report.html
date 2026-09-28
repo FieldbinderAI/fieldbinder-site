@@ -1,22 +1,3 @@
-<!--
-  TEMPLATE FILE — NOT A PUBLISHED PAGE.
-  This is the shell for a resources/ article. Copy it to a real filename under
-  resources/ (e.g. resources/daily-field-report-template.html) and replace every
-  {{MUSTACHE}} placeholder below:
-    {{TITLE}}            - the <title> tag (also og:title, twitter:title) — carries the " | FieldBinder AI" suffix
-                            {{HEADLINE}}         - the on-page h1, the JSON-LD Article headline and the breadcrumb name (no brand suffix)
-    {{DESCRIPTION}}       - meta description (also og:description, twitter:description,
-                            and the JSON-LD Article description)
-    {{SLUG}}              - filename slug, no extension (canonical becomes
-                            https://fieldbinder.ai/resources/{{SLUG}})
-    {{DATE_ISO}}          - YYYY-MM-DD, used in datetime attr + JSON-LD dates
-    {{DATE_HUMAN}}        - human-readable date shown in the byline
-    {{BODY}}              - the article HTML (h2/p/ul etc.)
-    {{TEMPLATE_NAME}}     - the downloadable template's display name
-    {{TEMPLATE_URL}}      - the download href for the template file
-    {{RELATED_PERSONAS}}  - an <ul> of related persona links
-  Remove the SEO-2B noindex meta (see the head) when the article is ready to publish.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,26 +11,26 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{TITLE}}</title>
-<meta name="description" content="{{DESCRIPTION}}">
+<title>How to Write a Daily Field Report (Template) | FieldBinder AI</title>
+<meta name="description" content="A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.">
 <!-- SEO-2B: remove noindex when publishing a real article -->
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://fieldbinder.ai/resources/{{SLUG}}">
+<link rel="canonical" href="https://fieldbinder.ai/resources/how-to-write-a-daily-field-report">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="FieldBinder AI">
-<meta property="og:title" content="{{TITLE}}">
-<meta property="og:description" content="{{DESCRIPTION}}">
-<meta property="og:url" content="https://fieldbinder.ai/resources/{{SLUG}}">
+<meta property="og:title" content="How to Write a Daily Field Report (Template) | FieldBinder AI">
+<meta property="og:description" content="A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.">
+<meta property="og:url" content="https://fieldbinder.ai/resources/how-to-write-a-daily-field-report">
 <meta property="og:image" content="https://fieldbinder.ai/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{TITLE}}">
-<meta name="twitter:description" content="{{DESCRIPTION}}">
+<meta name="twitter:title" content="How to Write a Daily Field Report (Template) | FieldBinder AI">
+<meta name="twitter:description" content="A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.">
 <meta name="twitter:image" content="https://fieldbinder.ai/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -246,25 +227,25 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "{{HEADLINE}}",
-          "item": "https://fieldbinder.ai/resources/{{SLUG}}"
+          "name": "How to Write a Daily Field Report (Template)",
+          "item": "https://fieldbinder.ai/resources/how-to-write-a-daily-field-report"
         }
       ]
     },
     {
       "@type": "Article",
-      "@id": "https://fieldbinder.ai/resources/{{SLUG}}#article",
-      "headline": "{{HEADLINE}}",
-      "description": "{{DESCRIPTION}}",
-      "datePublished": "{{DATE_ISO}}",
-      "dateModified": "{{DATE_ISO}}",
+      "@id": "https://fieldbinder.ai/resources/how-to-write-a-daily-field-report#article",
+      "headline": "How to Write a Daily Field Report (Template)",
+      "description": "A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.",
+      "datePublished": "2026-09-28",
+      "dateModified": "2026-09-28",
       "author": {
         "@id": "https://fieldbinder.ai/#founder"
       },
       "publisher": {
         "@id": "https://fieldbinder.ai/#organization"
       },
-      "mainEntityOfPage": "https://fieldbinder.ai/resources/{{SLUG}}",
+      "mainEntityOfPage": "https://fieldbinder.ai/resources/how-to-write-a-daily-field-report",
       "image": "https://fieldbinder.ai/og-image.png"
     }
   ]
@@ -309,22 +290,29 @@
 <section class="ucs" style="border-top:none">
   <div class="wrap">
     <article class="article reveal">
-      <h1>{{HEADLINE}}</h1>
+      <h1>How to Write a Daily Field Report (Template)</h1>
       <div class="byline">
         <span>By Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects</span>
-        <time datetime="{{DATE_ISO}}">{{DATE_HUMAN}}</time>
+        <time datetime="2026-09-28">September 28, 2026</time>
       </div>
 
-      {{BODY}}
+      <!-- GOVERNOR COPY PENDING -->
 
       <div class="download-block">
         <h2>Download the template</h2>
         <p>Use this template on your next site visit, or capture it directly in FieldBinder AI.</p>
-        <a class="btn btn-primary" href="{{TEMPLATE_URL}}" download>Download {{TEMPLATE_NAME}}</a>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/resources/templates/FieldBinder-Daily-Field-Report-Template.docx" download>Download the template (.docx)</a>
+          <a class="btn btn-ghost" href="/resources/templates/FieldBinder-Daily-Field-Report-Template.pdf" download>Download the template (.pdf)</a>
+        </div>
       </div>
 
       <h2>Related</h2>
-      {{RELATED_PERSONAS}}
+      <ul class="related-list">
+        <li><a href="/use-cases/project-managers">Field documentation for project managers</a></li>
+        <li><a href="/use-cases/contractors">Daily reports and punch lists for contractors</a></li>
+        <li><a href="/use-cases/owners-reps">Site visit reports for owner's representatives</a></li>
+      </ul>
     </article>
   </div>
 </section>
