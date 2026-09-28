@@ -19,5 +19,6 @@
 /use-cases/owners-reps.html /use-cases/owners-reps 301!
 /use-cases/facility-maintenance.html /use-cases/facility-maintenance 301!
 /resources/index.html /resources/ 301!
+/resources/how-to-write-a-daily-field-report.html /resources/how-to-write-a-daily-field-report 301!
 # SEO-2A: the article template is a scaffold with placeholders, not a page - never serve it (SEO-2B instantiates real articles from it)
 /resources/_template-article.html /resources/index.html 404!

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /resources/_template-article.html
 
 Sitemap: https://fieldbinder.ai/sitemap.xml

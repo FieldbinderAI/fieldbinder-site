@@ -11,10 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Write a Daily Field Report (Template) | FieldBinder AI</title>
+<title>How to Write a Daily Field Report | FieldBinder AI</title>
 <meta name="description" content="A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.">
-<!-- SEO-2B: remove noindex when publishing a real article -->
-<meta name="robots" content="noindex">
 <link rel="canonical" href="https://fieldbinder.ai/resources/how-to-write-a-daily-field-report">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,14 +20,14 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="FieldBinder AI">
-<meta property="og:title" content="How to Write a Daily Field Report (Template) | FieldBinder AI">
+<meta property="og:title" content="How to Write a Daily Field Report | FieldBinder AI">
 <meta property="og:description" content="A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.">
 <meta property="og:url" content="https://fieldbinder.ai/resources/how-to-write-a-daily-field-report">
 <meta property="og:image" content="https://fieldbinder.ai/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Write a Daily Field Report (Template) | FieldBinder AI">
+<meta name="twitter:title" content="How to Write a Daily Field Report | FieldBinder AI">
 <meta name="twitter:description" content="A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.">
 <meta name="twitter:image" content="https://fieldbinder.ai/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,6 +168,16 @@
   .download-block{background:var(--bg-elev);border:1px solid var(--line-bright);border-radius:var(--radius);padding:28px;margin:40px 0}
   .download-block h2{margin-top:0}
   .download-block p{margin-bottom:18px}
+  /* SEO-2B */
+  .article h3{font-size:19px;margin:26px 0 10px}
+  .article ul,.article ol{color:var(--text-2);font-size:16px;line-height:1.7;margin:0 0 18px 22px}
+  .article li{margin-bottom:8px}
+  .article strong{color:var(--text)}
+  .article a:not(.btn){color:var(--blue-bright)}
+  .dl-size{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;opacity:.75;margin-top:2px}
+  .faq h3{margin-top:22px}
+  .download-block .btn-row{display:flex;flex-wrap:wrap;gap:12px}
+  .download-block .btn{white-space:normal;max-width:100%;text-align:center;line-height:1.35}
 </style>
 <script type="application/ld+json">
 {
@@ -251,6 +259,54 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long should a daily field report be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One to two pages. Long enough to record what happened, short enough that the people who need to read it will. Detail beyond that belongs in attachments or the project file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who should write the daily report?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The person who was on site and responsible for the work that day — a superintendent, project manager, owner's representative, or engineer conducting the site visit. It should not be delegated to someone who was not there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I write a report on days when nothing happened?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. \"No work performed — weather\" or \"No site activity; awaiting material delivery\" is a record that matters when the schedule is reviewed. A missing day looks like a missing report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a daily report and a daily log?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In practice the terms are used interchangeably. Some firms use \"log\" for a short, form-based entry and \"report\" for a narrative document sent to the owner. The structure in this guide works for either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a daily field report be used in a dispute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Daily reports written on the day are routinely relied on in schedule and payment disputes, which is the reason to write them on the day, in fact-based language, with dated photos. This guide is not legal advice; ask your counsel how your project's records should be kept."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -268,6 +324,7 @@
         <a href="/#reports">Reports</a>
         <a href="/pricing">Pricing</a>
         <a href="/security">Security</a>
+        <a href="/resources/" class="active">Resources</a>
       </div>
       <div class="nav-cta">
         <a href="/login" class="nav-login">Log in</a>
@@ -282,6 +339,7 @@
     <a href="/#reports">Reports</a>
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
+    <a href="/resources/" class="active">Resources</a>
     <a href="/login" class="mm-login">Log in</a>
   </div>
 </header>
@@ -289,23 +347,120 @@
 <!-- ARTICLE -->
 <section class="ucs" style="border-top:none">
   <div class="wrap">
-    <article class="article reveal">
+    <article class="article">
       <h1>How to Write a Daily Field Report (Template)</h1>
       <div class="byline">
         <span>By Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects</span>
         <time datetime="2026-09-28">September 28, 2026</time>
       </div>
 
-      <!-- GOVERNOR COPY PENDING -->
-
+      <!-- BODY:START (copy of record: TEMP-cc-seo-2b.md BODY; converted by md2html.mjs) -->
+      <p>A daily field report is the record of what happened on a site on one day, written by someone who was there. Its value shows up later: when a pay application is questioned, when a schedule slips and someone asks when the problem first appeared, when a contractor and an owner remember the same conversation two different ways. A report written on the day settles those questions. A report reconstructed a week later starts them.</p>
+      <p>This guide covers what belongs in a daily report, how to write each section so it is useful in six months, and the habits that make it hold up. The template at the end follows the same structure.</p>
+      <h2>What a daily field report is for</h2>
+      <p>Three things, in order of how often they matter:</p>
+      <ol>
+        <li><strong>A record written on the day.</strong> Dated, factual, written before memory has a chance to drift. In a dispute, a daily written at the time carries weight that memory and email threads do not.</li>
+        <li><strong>A progress signal.</strong> The owner, the GC, or your own manager should be able to read it in two minutes and know whether the day went to plan.</li>
+        <li><strong>The source for everything downstream.</strong> Weekly summaries, punch lists, RFIs, and closeout documentation are easier to build from clean dailies than from a camera roll.</li>
+      </ol>
+      <p>It is not a diary, a place for opinions about the crew, or a substitute for the safety log, the RFI log, or the change order process. It points to those; it does not replace them.</p>
+      <h2>The header</h2>
+      <p>Every daily report needs the same identifying block at the top, so a page pulled out of a binder or an email attachment still stands on its own:</p>
+      <ul>
+        <li><strong>Project</strong> — name and number</li>
+        <li><strong>Customer</strong> — the entity paying for the work</li>
+        <li><strong>Site</strong> — location, including the building or area if the project spans several</li>
+        <li><strong>Date</strong> — the day the report covers, not the day it was written (they should be the same)</li>
+        <li><strong>Prepared by</strong> — your name and role</li>
+        <li><strong>Captures from</strong> — if the report covers more than one day, the range</li>
+      </ul>
+      <p>Weather, crew count, and equipment on site are worth a line each on construction projects. On a plant or facility job they matter less than which systems were down and which were live.</p>
+      <h2>The five sections</h2>
+      <p>The order below is deliberate. A reader with two minutes reads the summary and stops. A reader with ten reads down to next steps. A reader with a problem goes straight to issues and safety.</p>
+      <h3>1. Summary</h3>
+      <p>Three to five sentences. What was the plan for the day, what got done, and the single most important thing a reader needs to know. If the day went to plan, say so in one line and move on.</p>
+      <p>Write it last, after the other sections are filled in. A summary written first tends to describe intentions rather than results.</p>
+      <p><em>Weak:</em> "Good progress today, a few issues but overall on track."</p>
+      <p><em>Better:</em> "Demolition of the north wall plate complete; contractor found corroded steel behind it (see Issues). Electrical rough-in in Room 104 started a day early. One recordable safety observation, closed on site."</p>
+      <h3>2. Work Performed</h3>
+      <p>The factual account of what was done, by whom, and where. One line per activity, in the order it happened or by area. Include quantities where they exist — linear feet installed, panels set, tests completed — because quantities are what the pay application will be checked against.</p>
+      <p>Name the contractor or trade, not individuals, unless the individual matters (an inspector, an engineer of record, a customer representative making a decision).</p>
+      <p><em>Example lines:</em></p>
+      <ul>
+        <li>07:30–11:00 — ABC Mechanical removed existing plate and insulation, north wall, Grid C-4 to C-7 (approx. 22 LF).</li>
+        <li>10:15 — Owner's representative on site; confirmed light/medium/heavy repair options requested for the steel condition below.</li>
+        <li>13:00–16:30 — DEF Electrical began conduit rough-in, Room 104 (ahead of the Wednesday plan).</li>
+      </ul>
+      <h3>3. Issues</h3>
+      <p>Anything that is not going to plan, or that someone is going to ask about later: unforeseen conditions, delays and their cause, coordination conflicts, missing materials, decisions that are waiting on someone.</p>
+      <p>For each issue, record four things: what was observed, where, who was told, and what is expected to happen next. If a photo exists, reference it. If a decision is needed, name whose decision it is. This is the section that generates RFIs and change requests, so write it as if you were about to draft one.</p>
+      <p><em>Example:</em></p>
+      <ul>
+        <li>Existing steel behind the north wall plate shows section loss at Grid C-5 (see photos 3–5). Contractor to field-verify extent before repair. Owner requested light, medium, and heavy repair options for review. RFI to follow. Decision needed by: owner's representative.</li>
+      </ul>
+      <p>Do not soften it. "Some minor concerns with the steel" will read as negligence later if the steel turns out to matter.</p>
+      <h3>4. Safety</h3>
+      <p>Observations, near misses, incidents, toolbox talks held, permits issued or closed, and corrective actions taken. If nothing happened, write "None reported." A blank safety section reads as "not checked." A "None reported" reads as "checked, nothing found."</p>
+      <p>Record what was done about an observation, not only that it was made. "Extension cord across walkway in Room 104 — moved and re-routed on the spot, discussed with the electrical foreman" is complete. "Cord in walkway" is not.</p>
+      <h3>5. Next Steps</h3>
+      <p>What is planned for tomorrow, what is waiting on whom, and any dates. Keep it short and specific. This section is what the next day's summary will be measured against, and it is the fastest way for a manager to see whether the project is being driven or drifting.</p>
+      <p><em>Example:</em></p>
+      <ul>
+        <li>ABC Mechanical to expose full extent of steel corrosion, Grid C-4 to C-7, and mark up for the structural engineer.</li>
+        <li>DEF Electrical to continue Room 104 rough-in; inspection requested for Thursday.</li>
+        <li>Owner's representative to confirm repair-option review meeting (proposed Friday 10:00).</li>
+      </ul>
+      <h2>Site photos</h2>
+      <p>Photos are the part of a daily report that cannot be argued with, provided they are labeled. A photo with no caption, no location, and no time is a picture of a wall. For each photo the report should carry:</p>
+      <ul>
+        <li>a caption saying what the photo shows and why it was taken</li>
+        <li>the location (grid, room, elevation, or equipment tag)</li>
+        <li>the time it was taken</li>
+        <li>a tag or category — progress, issue, safety, existing condition, completed work</li>
+      </ul>
+      <p>Eight to twelve photos is usually enough for a day. More than that and the report becomes a gallery nobody reads; the rest can stay in the project file.</p>
+      <h2>The rules that make a daily report hold up</h2>
+      <p><strong>Same day, every day.</strong> A daily written the next morning is already a reconstruction. If the day ended in the truck, the notes from the truck are the report.</p>
+      <p><strong>Facts, then interpretation, clearly separated.</strong> "Contractor did not have the submittal on site" is a fact. "Contractor is disorganized" is an opinion, and it will be read aloud in a room you are not in.</p>
+      <p><strong>"None reported." beats blank.</strong> Every section gets filled. An empty section is ambiguous; a "None reported" is a statement.</p>
+      <p><strong>Measurements carry their method.</strong> A tape reading and an estimate from a phone camera are not the same thing. Note which one it was, and field-verify anything a decision depends on.</p>
+      <p><strong>Names on decisions.</strong> Every open item in Issues and Next Steps names the person or role who owns the decision. "Pending owner decision" without a name is how things stall.</p>
+      <p><strong>Keep it to two pages.</strong> If it is longer, the detail belongs in an attachment or the project file, and the report should reference it.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li><strong>Writing the summary first.</strong> It ends up describing the plan, not the day.</li>
+        <li><strong>Recording that a problem exists without recording who was told.</strong> The report should show the communication happened.</li>
+        <li><strong>Skipping the safety section on a quiet day.</strong> The quiet days are exactly when a blank section looks worst.</li>
+        <li><strong>Photos in the camera roll, captions in your head.</strong> Two weeks later neither is findable.</li>
+        <li><strong>Mixing yesterday's catch-up into today's report.</strong> Date each entry to the day it happened, even if it is being written down late — and say it is being written down late.</li>
+      </ul>
       <div class="download-block">
-        <h2>Download the template</h2>
-        <p>Use this template on your next site visit, or capture it directly in FieldBinder AI.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="/resources/templates/FieldBinder-Daily-Field-Report-Template.docx" download>Download the template (.docx)</a>
-          <a class="btn btn-ghost" href="/resources/templates/FieldBinder-Daily-Field-Report-Template.pdf" download>Download the template (.pdf)</a>
-        </div>
+      <h2>Download the template</h2>
+      <p>The template follows the structure above exactly: the project header, the five sections with fill-in prompts, and a site photo log. It prints in black and white and works in Word or as a PDF you fill by hand.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/resources/templates/FieldBinder-Daily-Field-Report-Template.docx" download>Download the Word template (.docx) <small class="dl-size">Word, 13 KB</small></a>
+        <a class="btn btn-ghost" href="/resources/templates/FieldBinder-Daily-Field-Report-Template.pdf" download>Download the PDF <small class="dl-size">PDF, 76 KB</small></a>
       </div>
+      </div>
+      <h2>How FieldBinder AI produces this report</h2>
+      <p>The sections above are the same five sections FieldBinder AI generates from a project's captures. The app works from what was recorded in the field — photos with captions, voice notes cleaned into field notes, tagged issues, safety observations, measurements — and drafts the Summary, Work Performed, Issues, Safety, and Next Steps sections from those captures only. Photos appear in a site photo log with their captions, tags, and times. The result is an editable draft: you review it, correct it, and export it as a branded PDF or copy the text into an email.</p>
+      <p>The draft is a starting point, not a signed document. Every generated report is marked as AI-assisted, and you are responsible for reviewing it before it goes to a customer. What the app removes is the hour of reconstruction, not the judgment.</p>
+      <p>AI report generation is part of the Pro plan; capture and organization by project are included on every plan. <a href="/pricing">See pricing</a> · <a href="/use-cases/project-managers">How it works for project managers</a></p>
+      <section class="faq" id="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>How long should a daily field report be?</h3>
+      <p>One to two pages. Long enough to record what happened, short enough that the people who need to read it will. Detail beyond that belongs in attachments or the project file.</p>
+      <h3>Who should write the daily report?</h3>
+      <p>The person who was on site and responsible for the work that day — a superintendent, project manager, owner's representative, or engineer conducting the site visit. It should not be delegated to someone who was not there.</p>
+      <h3>Should I write a report on days when nothing happened?</h3>
+      <p>Yes. "No work performed — weather" or "No site activity; awaiting material delivery" is a record that matters when the schedule is reviewed. A missing day looks like a missing report.</p>
+      <h3>What is the difference between a daily report and a daily log?</h3>
+      <p>In practice the terms are used interchangeably. Some firms use "log" for a short, form-based entry and "report" for a narrative document sent to the owner. The structure in this guide works for either.</p>
+      <h3>Can a daily field report be used in a dispute?</h3>
+      <p>Daily reports written on the day are routinely relied on in schedule and payment disputes, which is the reason to write them on the day, in fact-based language, with dated photos. This guide is not legal advice; ask your counsel how your project's records should be kept.</p>
+      </section>
+      <!-- BODY:END -->
 
       <h2>Related</h2>
       <ul class="related-list">
@@ -358,6 +513,7 @@
         <a href="/#reports">Reports</a>
         <a href="/pricing">Pricing</a>
         <a href="/security">Security</a>
+        <a href="/resources/">Resources</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
