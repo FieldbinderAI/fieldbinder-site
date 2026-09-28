@@ -34,9 +34,17 @@ Key-event marking in GA4 Admin is a Governor step.
 dimension (`dp=`), not to a custom `ep.page_path` — by design (Governor ruling 2026-09-28).
 
 ## Resources hub
-`/resources/` is noindex and stays out of nav, footer, and sitemap until the first
-article ships in SEO-2B. `resources/_template-article.html` is the article
-template, not a page.
+`/resources/` is live and indexable since SEO-2B (2026-09-28) with the first article
+`resources/how-to-write-a-daily-field-report.html`. Articles are instantiated from
+`resources/_template-article.html` ({{TITLE}} = the <title> with the brand suffix,
+{{HEADLINE}} = the h1 / Article headline / breadcrumb; the template stays noindex,
+is force-404'd in `_redirects` and disallowed in `robots.txt`). An article carries TWO
+JSON-LD blocks (the @graph with Article + a FAQPage whose text equals the visible FAQ),
+one Download block, and a `<article class="article">` WITHOUT the `reveal` class — a
+tall reveal element never reaches the observer's 10% threshold on a phone and stays
+invisible. Downloadable templates live in `resources/templates/` and are linked only
+from their article. New article = add it to `scripts/gen-sitemap.mjs` PAGES, an
+`_redirects` `.html → clean 301!` rule, and the hub card.
 
 ## Line endings
 Working copies are CRLF (autocrlf); the git index is LF. Normalize before comparing

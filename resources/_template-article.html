@@ -3,8 +3,8 @@
   This is the shell for a resources/ article. Copy it to a real filename under
   resources/ (e.g. resources/daily-field-report-template.html) and replace every
   {{MUSTACHE}} placeholder below:
-    {{TITLE}}            - article title (also used in <title>, og:title, twitter:title,
-                            the JSON-LD Article headline, and the h1)
+    {{TITLE}}            - the <title> tag (also og:title, twitter:title) — carries the " | FieldBinder AI" suffix
+                            {{HEADLINE}}         - the on-page h1, the JSON-LD Article headline and the breadcrumb name (no brand suffix)
     {{DESCRIPTION}}       - meta description (also og:description, twitter:description,
                             and the JSON-LD Article description)
     {{SLUG}}              - filename slug, no extension (canonical becomes
@@ -246,7 +246,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "{{TITLE}}",
+          "name": "{{HEADLINE}}",
           "item": "https://fieldbinder.ai/resources/{{SLUG}}"
         }
       ]
@@ -254,7 +254,7 @@
     {
       "@type": "Article",
       "@id": "https://fieldbinder.ai/resources/{{SLUG}}#article",
-      "headline": "{{TITLE}}",
+      "headline": "{{HEADLINE}}",
       "description": "{{DESCRIPTION}}",
       "datePublished": "{{DATE_ISO}}",
       "dateModified": "{{DATE_ISO}}",
@@ -287,6 +287,7 @@
         <a href="/#reports">Reports</a>
         <a href="/pricing">Pricing</a>
         <a href="/security">Security</a>
+        <a href="/resources/" class="active">Resources</a>
       </div>
       <div class="nav-cta">
         <a href="/login" class="nav-login">Log in</a>
@@ -301,6 +302,7 @@
     <a href="/#reports">Reports</a>
     <a href="/pricing">Pricing</a>
     <a href="/security">Security</a>
+    <a href="/resources/" class="active">Resources</a>
     <a href="/login" class="mm-login">Log in</a>
   </div>
 </header>
@@ -308,8 +310,8 @@
 <!-- ARTICLE -->
 <section class="ucs" style="border-top:none">
   <div class="wrap">
-    <article class="article reveal">
-      <h1>{{TITLE}}</h1>
+    <article class="article">
+      <h1>{{HEADLINE}}</h1>
       <div class="byline">
         <span>By Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects</span>
         <time datetime="{{DATE_ISO}}">{{DATE_HUMAN}}</time>
@@ -370,6 +372,7 @@
         <a href="/#reports">Reports</a>
         <a href="/pricing">Pricing</a>
         <a href="/security">Security</a>
+        <a href="/resources/">Resources</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
