@@ -30,6 +30,8 @@ branch/preview deploy; the Founder says yes; then merge.
 `store_badge_click{store,page_path}`, `pricing_cta_click{plan,page_path}`,
 `lead_submit{form,page_path}` — fired by the SEO-2A inline script before `</body>`.
 Key-event marking in GA4 Admin is a Governor step.
+`page_path` is a gtag-reserved field name: gtag maps it to the standard Page path
+dimension (`dp=`), not to a custom `ep.page_path` — by design (Governor ruling 2026-09-28).
 
 ## Resources hub
 `/resources/` is noindex and stays out of nav, footer, and sitemap until the first
