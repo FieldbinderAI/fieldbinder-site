@@ -13,8 +13,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RFI Log Template and How to Run One | FieldBinder AI</title>
 <meta name="description" content="A printable RFI log template and the process that keeps requests for information answered on time, with the reference and the response on the same line.">
-<!-- SEO-2B: remove noindex when publishing a real article -->
-<meta name="robots" content="noindex">
 <link rel="canonical" href="https://fieldbinder.ai/resources/rfi-log-template">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -170,6 +168,13 @@
   .download-block{background:var(--bg-elev);border:1px solid var(--line-bright);border-radius:var(--radius);padding:28px;margin:40px 0}
   .download-block h2{margin-top:0}
   .download-block p{margin-bottom:18px}
+  /* SEO-2B */
+  .article h3{font-size:19px;margin:26px 0 10px}
+  .article ul,.article ol{color:var(--text-2);font-size:16px;line-height:1.7;margin:0 0 18px 22px}
+  .article li{margin-bottom:8px}
+  .article strong{color:var(--text)}
+  .article a:not(.btn){color:var(--blue-bright)}
+  .faq h3{margin-top:22px}
   /* SEO-2C */
   .dl-size{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;opacity:.75;margin-top:2px}
   .download-block .btn-row{display:flex;flex-wrap:wrap;gap:12px}
@@ -255,6 +260,54 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between an RFI and a change order request?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An RFI asks for information the contract documents should have provided. A change order request asks for a change in scope, cost, or time. An RFI's answer often reveals that a change is needed; when it does, the RFI is closed and the change request opens with the RFI as its reference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who can raise an RFI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anyone on the project who hits a question the documents do not answer — a superintendent, a foreman, an inspector, an owner's representative. One person keeps the log and assigns the numbers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should an RFI response take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whatever the contract says; five to ten working days is common. The log's job is to make the actual turnaround visible against the promised one, so late answers are a fact on a page rather than a memory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should every field question become an RFI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A question the superintendent can answer from the drawings is not an RFI. An RFI is for questions the documents cannot answer, or answer two different ways. Logging trivial questions buries the ones that matter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an RFI log be used in a delay claim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RFI logs are routinely part of the record in schedule disputes, which is the reason to keep the dates honest and the questions specific. This guide is not legal advice; ask your counsel how your project's records should be kept."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -302,16 +355,85 @@
         <time datetime="2026-09-28">September 28, 2026</time>
       </div>
 
-      <!-- GOVERNOR COPY PENDING -->
-
+      <!-- BODY:START (copy of record: SEO-2D mission BODY, Founder approved 2026-09-29; converted by md2html.mjs) -->
+      <p>A request for information is a question the field cannot answer on its own: a drawing that contradicts the spec, a condition nobody expected behind a wall, a detail that was never drawn. The RFI log is the record of every one of those questions — who asked it, what it referenced, who owes the answer, and what the answer was. On a well-run project the log is boring. On a badly run one, it is where the delay claims come from.</p>
+      <p>This guide covers what a good RFI contains, how to write a question that gets answered instead of returned, and how to run the log so nothing sits open unnoticed. The template at the end follows the same structure.</p>
+      <h2>What an RFI log is for</h2>
+      <p>An RFI log does three jobs, and the third is the one people forget until they need it:</p>
+      <ol>
+        <li><strong>A queue.</strong> Every open question, in one place, with a date it was raised and a date it is needed. Without the log, questions live in email threads and get answered in the order someone happens to read them.</li>
+        <li><strong>A record of decisions.</strong> The response to an RFI is often a design decision. Six months later, when someone asks why the conduit runs where it runs, the answer is in the log.</li>
+        <li><strong>The evidence in a delay dispute.</strong> If a question sat unanswered for three weeks and the work behind it stalled, the log shows the dates. If the question was vague and had to be asked twice, the log shows that too.</li>
+      </ol>
+      <p>An RFI is not a change request, a submittal, or a complaint. It asks for information the contract documents should have provided. If the answer changes scope, cost, or schedule, that is a change — the RFI just uncovered it.</p>
+      <h2>What belongs in every RFI</h2>
+      <p>The template carries eleven columns. The first five come from the field; the rest are the log-keeper's and get filled in as the RFI moves.</p>
+      <ul>
+        <li><strong>RFI #</strong> — sequential, never reused. The number is how everyone refers to it from then on.</li>
+        <li><strong>Date raised</strong> — the day the question was asked, not the day it was typed up.</li>
+        <li><strong>Context / reference</strong> — the drawing, sheet, detail, spec section, or location the question is about. "Sheet E-401, Detail 3, Panel LP-2" lets the engineer open the right page in ten seconds. "The electrical drawings" does not.</li>
+        <li><strong>Question</strong> — one question, asked so it can be answered in a sentence or a sketch.</li>
+        <li><strong>Impact if unanswered</strong> — what happens to the work if no answer comes by the date needed. State it only if you know it. "Slab pour on Grid 4 cannot proceed" is an impact. Guessing at cost or days is not; that belongs in a change request once the answer is in.</li>
+        <li><strong>Raised by</strong> — the person, so the engineer knows who to call for clarification.</li>
+        <li><strong>Responsible party</strong> — who owes the answer: architect, engineer of record, owner, vendor.</li>
+        <li><strong>Date needed</strong> — the honest date, not "ASAP." A needed-by date is what turns a question into a commitment.</li>
+        <li><strong>Date answered</strong> and <strong>Response summary</strong> — filled in by the log keeper when the answer arrives; the full response is attached, the summary is what the log shows.</li>
+        <li><strong>Status</strong> — Open, Answered, or Closed. Answered means a response came in; Closed means the response was reviewed and the field can act on it. They are not the same thing.</li>
+      </ul>
+      <h2>How to write a question that gets answered</h2>
+      <p>Most RFIs that come back "please clarify" were never questions. They were observations with a question mark.</p>
+      <p><strong>One question per RFI.</strong> "Confirm panel schedule for LP-2, and also is the feeder size correct, and what about the grounding?" is three RFIs. Written as one, it gets a partial answer and stays open.</p>
+      <p><strong>Say what you found, then what you need.</strong> <em>Context:</em> "Sheet E-401 shows LP-2 as 42-circuit; the panel delivered is 30-circuit." <em>Question:</em> "Which is correct, and if 42, who supplies the replacement?" The engineer can answer that without a site visit.</p>
+      <p><strong>Reference something the responder can open.</strong> A sheet number, a spec section, a photo. A question with no reference sends the engineer looking for the problem before they can think about the answer.</p>
+      <p><strong>Offer a proposed answer when you have one.</strong> "We propose to route the conduit above the duct at Grid C-5 with 12 in. clearance — please confirm." A yes/no closes faster than an open question, and it shows the field did its homework.</p>
+      <p><strong>State the impact only when it is real.</strong> "Impact if unanswered: none this week" is a legitimate entry and tells the responder how to prioritize. Inflating every RFI to "critical path" trains people to ignore the word.</p>
+      <p><em>Weak:</em> "Ceiling height in Room 204 — please advise."</p>
+      <p><em>Better:</em> "Context: Sheet A-201 shows Room 204 ceiling at 9'-0"; Sheet M-301 shows a 24 in. duct at 8'-6" AFF in the same room. Question: Which governs — is the ceiling dropped to 8'-0" or is the duct rerouted? Impact if unanswered: ceiling grid layout on hold from 10/6."</p>
+      <h2>Running the log</h2>
+      <p><strong>Number on entry, not on send.</strong> The log keeper assigns the number the moment the question is written, even if it goes out the next morning. Two people numbering from their own lists is how RFI-14 exists twice.</p>
+      <p><strong>One keeper.</strong> Usually the project manager or the owner's representative. Anyone can raise an RFI; one person owns the log.</p>
+      <p><strong>Set a turnaround and track against it.</strong> Most contracts name a response period — commonly five to ten working days. The log makes the clock visible: a column of dates needed against dates answered is a report nobody has to write.</p>
+      <p><strong>Chase from the log, not from memory.</strong> Once a week, sort by status and date needed. Every open item past its date gets a call, and the call gets noted. "Called EOR 10/3, response promised 10/5" is the kind of line that matters later.</p>
+      <p><strong>Close it on the field's terms.</strong> The log keeper marks an RFI Answered when the response lands and Closed when the person who asked confirms it answers the question. If it does not, it goes back Open with the reason, under the same number.</p>
+      <p><strong>Distribute the current log, not a marked-up copy.</strong> Everyone works from the same version. Old versions go in the project file.</p>
+      <p><strong>Route what changes scope.</strong> If an answer adds work, changes materials, or moves dates, the RFI is closed and a change request opens, referencing it. Keeping the two separate is what keeps the RFI log credible as a record of questions rather than a negotiating file.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li><strong>Questions without references.</strong> The single biggest cause of the "please clarify" round trip.</li>
+        <li><strong>Multi-part RFIs.</strong> Partial answers, permanent Open status.</li>
+        <li><strong>"ASAP" as a needed-by date.</strong> It means nothing and gets treated that way.</li>
+        <li><strong>Estimating impacts you cannot support.</strong> Every inflated impact makes the real ones less believable.</li>
+        <li><strong>Answered and Closed treated as one state.</strong> A response that does not answer the question is not closure.</li>
+        <li><strong>Chasing by email thread.</strong> The log is the chase list. If a follow-up is not on the log, it did not happen.</li>
+        <li><strong>Letting the RFI carry the change.</strong> Scope changes go through the change process, with the RFI as the reference.</li>
+      </ul>
       <div class="download-block">
-        <h2>Download the template</h2>
-        <p>Use this template on your next site visit, or capture it directly in FieldBinder AI.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="/resources/templates/FieldBinder-RFI-Log-Template.docx" download>Download the Word template (.docx) <small class="dl-size">Word, 14 KB</small></a>
-          <a class="btn btn-ghost" href="/resources/templates/FieldBinder-RFI-Log-Template.pdf" download>Download the PDF <small class="dl-size">PDF, 92 KB</small></a>
-        </div>
+      <h2>Download the template</h2>
+      <p>The template follows the structure above: a project header, then a numbered log with date raised, context and reference, question, impact if unanswered, raised by, responsible party, date needed, date answered, response summary, and status. Landscape, prints in black and white, works in Word or as a PDF you fill by hand.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/resources/templates/FieldBinder-RFI-Log-Template.docx" download>Download the Word template (.docx) <small class="dl-size">Word, 14 KB</small></a>
+        <a class="btn btn-ghost" href="/resources/templates/FieldBinder-RFI-Log-Template.pdf" download>Download the PDF <small class="dl-size">PDF, 92 KB</small></a>
       </div>
+      </div>
+      <h2>How FieldBinder AI produces an RFI list</h2>
+      <p>In the field, an RFI is one capture: the question, typed or dictated, tagged RFI, with the project it belongs to. Photos taken in the same project sit beside it in the feed. Each RFI carries an open/done checkbox you tick when the question is resolved.</p>
+      <p>When you generate an RFI List, the app reads the project's captures and drafts a numbered list of the questions that were explicitly asked — it will not invent a question from something that merely looked unclear. Each item carries the context as you stated it, the question, and the impact if unanswered, only where a capture stated one; otherwise it says "Impact not specified." It never estimates schedule or cost. The list exports as a branded PDF with the project's site photos, or as plain text for an email to the design team.</p>
+      <p>The list is the field's half of the log — the questions, with their context, drafted before they are forgotten. The RFI numbers, the responsible party, the dates needed and answered, and the response summary are the log keeper's half, and the template is built to hold them. Every generated report is marked as AI-assisted, and you review it before it goes out.</p>
+      <p>AI report generation is part of the Pro plan; capture and organization by project are included on every plan. <a href="/pricing">See pricing</a> · <a href="/use-cases/engineering-consultants">How it works for engineering consultants</a></p>
+      <section class="faq" id="faq">
+      <h2>Frequently asked questions</h2>
+      <h3>What is the difference between an RFI and a change order request?</h3>
+      <p>An RFI asks for information the contract documents should have provided. A change order request asks for a change in scope, cost, or time. An RFI's answer often reveals that a change is needed; when it does, the RFI is closed and the change request opens with the RFI as its reference.</p>
+      <h3>Who can raise an RFI?</h3>
+      <p>Anyone on the project who hits a question the documents do not answer — a superintendent, a foreman, an inspector, an owner's representative. One person keeps the log and assigns the numbers.</p>
+      <h3>How long should an RFI response take?</h3>
+      <p>Whatever the contract says; five to ten working days is common. The log's job is to make the actual turnaround visible against the promised one, so late answers are a fact on a page rather than a memory.</p>
+      <h3>Should every field question become an RFI?</h3>
+      <p>No. A question the superintendent can answer from the drawings is not an RFI. An RFI is for questions the documents cannot answer, or answer two different ways. Logging trivial questions buries the ones that matter.</p>
+      <h3>Can an RFI log be used in a delay claim?</h3>
+      <p>RFI logs are routinely part of the record in schedule disputes, which is the reason to keep the dates honest and the questions specific. This guide is not legal advice; ask your counsel how your project's records should be kept.</p>
+      </section>
+      <!-- BODY:END -->
 
       <h2>Related</h2>
       <ul class="related-list">
