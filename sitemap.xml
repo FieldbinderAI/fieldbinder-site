@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fieldbinder.ai/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://fieldbinder.ai/about</loc>
@@ -50,15 +50,15 @@
   </url>
   <url>
     <loc>https://fieldbinder.ai/use-cases/project-managers</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://fieldbinder.ai/use-cases/engineering-consultants</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://fieldbinder.ai/use-cases/contractors</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://fieldbinder.ai/use-cases/owners-reps</loc>
@@ -74,14 +74,18 @@
   </url>
   <url>
     <loc>https://fieldbinder.ai/resources/how-to-write-a-daily-field-report</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://fieldbinder.ai/resources/punch-list-template</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://fieldbinder.ai/resources/rfi-log-template</loc>
+    <lastmod>2026-09-29</lastmod>
+  </url>
+  <url>
+    <loc>https://fieldbinder.ai/resources/executive-summary-template</loc>
     <lastmod>2026-09-29</lastmod>
   </url>
 </urlset>

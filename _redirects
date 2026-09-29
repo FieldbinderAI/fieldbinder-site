@@ -22,5 +22,6 @@
 /resources/how-to-write-a-daily-field-report.html /resources/how-to-write-a-daily-field-report 301!
 /resources/punch-list-template.html /resources/punch-list-template 301!
 /resources/rfi-log-template.html /resources/rfi-log-template 301!
+/resources/executive-summary-template.html /resources/executive-summary-template 301!
 # SEO-2A: the article template is a scaffold with placeholders, not a page - never serve it (SEO-2B instantiates real articles from it)
 /resources/_template-article.html /resources/index.html 404!
