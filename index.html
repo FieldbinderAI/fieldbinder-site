@@ -411,6 +411,10 @@
     .hero-cta{width:100%}
     .hero-cta .btn{flex:1}
   }
+  /* SITE-AUDIT-1 D2.5: 44px tap target for the hamburger (was 37px: 8px padding + 20px icon) */
+  @media(max-width:680px){.menu-btn{align-items:center;justify-content:center;min-width:44px;min-height:44px}}
+  /* SITE-AUDIT-1 D2.5: tighter hero at phone width so the primary CTA and the store badges sit in the first viewport */
+  @media(max-width:680px){.hero{padding:40px 0 64px}.hero-sub{font-size:16px;margin-bottom:20px}.hero-cta{margin-bottom:14px}.store-row{margin:-4px 0 20px}}
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
