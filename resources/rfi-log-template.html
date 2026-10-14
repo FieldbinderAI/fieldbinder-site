@@ -136,7 +136,7 @@
   .foot-brand{max-width:300px}
   .foot-brand .brand{margin-bottom:16px}
   .foot-brand p{color:var(--text-2);font-size:14px;line-height:1.6}
-  .foot-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px}
+  .foot-col h3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px;font-weight:700;line-height:1.6}
   .foot-col a{display:block;color:var(--text-2);font-size:14px;margin-bottom:12px;transition:color .16s}
   .foot-col a:hover{color:var(--text)}
   .foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap;gap:16px}
@@ -165,6 +165,8 @@
   .article p{color:var(--text-2);font-size:16px;margin-bottom:18px;line-height:1.75}
   .byline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--text-3);font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;margin:18px 0 40px}
   .byline time{color:var(--text-3)}
+  .byline a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .sources{padding-left:22px}.sources li{margin:8px 0}.sources .pub{color:var(--text-3)}
   .download-block{background:var(--bg-elev);border:1px solid var(--line-bright);border-radius:var(--radius);padding:28px;margin:40px 0}
   .download-block h2{margin-top:0}
   .download-block p{margin-bottom:18px}
@@ -196,6 +198,7 @@
         "https://play.google.com/store/apps/details?id=ai.fieldbinder.app",
         "https://github.com/FieldbinderAI"
       ],
+      "contactPoint": {"@type": "ContactPoint", "email": "contact@fieldbinder.ai", "contactType": "customer support"},
       "founder": {
         "@id": "https://fieldbinder.ai/#founder"
       }
@@ -247,7 +250,7 @@
       "headline": "RFI Log Template and How to Run One",
       "description": "A printable RFI log template and the process that keeps requests for information answered on time, with the reference and the response on the same line.",
       "datePublished": "2026-09-28",
-      "dateModified": "2026-09-28",
+      "dateModified": "2026-10-13",
       "author": {
         "@id": "https://fieldbinder.ai/#founder"
       },
@@ -286,7 +289,7 @@
       "name": "How long should an RFI response take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Whatever the contract says; five to ten working days is common. The log's job is to make the actual turnaround visible against the promised one, so late answers are a fact on a page rather than a memory."
+        "text": "Whatever the contract says. The log's job is to make the actual turnaround visible against the promised one. The log's job is to make the actual turnaround visible against the promised one, so late answers are a fact on a page rather than a memory."
       }
     },
     {
@@ -302,7 +305,7 @@
       "name": "Can an RFI log be used in a delay claim?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "RFI logs are routinely part of the record in schedule disputes, which is the reason to keep the dates honest and the questions specific. This guide is not legal advice; ask your counsel how your project's records should be kept."
+        "text": "RFI logs are often part of the record when schedule questions come up, which is the reason to keep the dates honest and the questions specific. This guide is not legal advice; ask your counsel how your project's records should be kept."
       }
     }
   ]
@@ -351,7 +354,7 @@
     <article class="article">
       <h1>RFI Log Template and How to Run One</h1>
       <div class="byline">
-        <span>By Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects</span>
+        <span>By <a href="/about">Steve Burton, PMP</a> — 19+ years in plant engineering, maintenance, and capital projects</span>
         <time datetime="2026-09-28">September 28, 2026</time>
       </div>
 
@@ -392,7 +395,7 @@
       <h2>Running the log</h2>
       <p><strong>Number on entry, not on send.</strong> The log keeper assigns the number the moment the question is written, even if it goes out the next morning. Two people numbering from their own lists is how RFI-14 exists twice.</p>
       <p><strong>One keeper.</strong> Usually the project manager or the owner's representative. Anyone can raise an RFI; one person owns the log.</p>
-      <p><strong>Set a turnaround and track against it.</strong> Most contracts name a response period — commonly five to ten working days. The log makes the clock visible: a column of dates needed against dates answered is a report nobody has to write.</p>
+      <p><strong>Set a turnaround and track against it.</strong> Most contracts name a response period; where they do not, AIA A201 asks for reasonable promptness. Use the period in your contract and track against it. The log makes the clock visible: a column of dates needed against dates answered is a report nobody has to write.</p>
       <p><strong>Chase from the log, not from memory.</strong> Once a week, sort by status and date needed. Every open item past its date gets a call, and the call gets noted. "Called EOR 10/3, response promised 10/5" is the kind of line that matters later.</p>
       <p><strong>Close it on the field's terms.</strong> The log keeper marks an RFI Answered when the response lands and Closed when the person who asked confirms it answers the question. If it does not, it goes back Open with the reason, under the same number.</p>
       <p><strong>Distribute the current log, not a marked-up copy.</strong> Everyone works from the same version. Old versions go in the project file.</p>
@@ -427,16 +430,26 @@
       <h3>Who can raise an RFI?</h3>
       <p>Anyone on the project who hits a question the documents do not answer — a superintendent, a foreman, an inspector, an owner's representative. One person keeps the log and assigns the numbers.</p>
       <h3>How long should an RFI response take?</h3>
-      <p>Whatever the contract says; five to ten working days is common. The log's job is to make the actual turnaround visible against the promised one, so late answers are a fact on a page rather than a memory.</p>
+      <p>Whatever the contract says. The log's job is to make the actual turnaround visible against the promised one. The log's job is to make the actual turnaround visible against the promised one, so late answers are a fact on a page rather than a memory.</p>
       <h3>Should every field question become an RFI?</h3>
       <p>No. A question the superintendent can answer from the drawings is not an RFI. An RFI is for questions the documents cannot answer, or answer two different ways. Logging trivial questions buries the ones that matter.</p>
       <h3>Can an RFI log be used in a delay claim?</h3>
-      <p>RFI logs are routinely part of the record in schedule disputes, which is the reason to keep the dates honest and the questions specific. This guide is not legal advice; ask your counsel how your project's records should be kept.</p>
+      <p>RFI logs are often part of the record when schedule questions come up, which is the reason to keep the dates honest and the questions specific. This guide is not legal advice; ask your counsel how your project's records should be kept.</p>
       </section>
       <!-- BODY:END -->
 
+      <h2>Sources</h2>
+      <ol class="sources">
+        <li><a href="https://contractdocs.aia.org/PreviewFiles/Preview_A201-2017.pdf" rel="noopener">Document A201® – 2017, General Conditions of the Contract for Construction</a> <span class="pub">— AIA Contract Documents (public preview).</span> Sections 3.2.2–3.2.4 (the contractor's requests for information and the claim that follows a costly clarification) and 4.2.14 (the Architect's written response with reasonable promptness).</li>
+        <li><a href="https://help.aiacontracts.com/hc/en-us/articles/1500009444782-Summary-G716-2004-Request-for-Information-RFI" rel="noopener">Summary: G716™–2004, Request for Information (RFI)</a> <span class="pub">— AIA Contract Documents.</span> What an RFI is for, and that RFIs are numbered, logged and tracked; no response time is prescribed.</li>
+        <li><a href="https://help.aiacontracts.com/hc/en-us/articles/1500009325281-Instructions-G716-2004-Request-for-Information-RFI" rel="noopener">Instructions: G716™–2004, Request for Information (RFI)</a> <span class="pub">— AIA Contract Documents.</span> The form's fields — requested reply date, description, references, sender's recommendation, receiver's response — which the template's columns follow.</li>
+      </ol>
+
       <h2>Related</h2>
       <ul class="related-list">
+        <li><a href="/resources/how-to-write-a-daily-field-report">How to Write a Daily Field Report (Template)</a></li>
+        <li><a href="/resources/punch-list-template">Punch List Template and How to Close One Out</a></li>
+        <li><a href="/resources/executive-summary-template">Project Executive Summary Template and How to Write One</a></li>
         <li><a href="/use-cases/engineering-consultants">Site visit reports for engineering consultants</a></li>
         <li><a href="/use-cases/project-managers">Field documentation for project managers</a></li>
         <li><a href="/use-cases/contractors">Daily reports and punch lists for contractors</a></li>
@@ -454,8 +467,8 @@
       <h2>Ready to see it <span class="accent">in the field?</span></h2>
       <p>Now available on iPhone and Android.</p>
       <div class="store-badges" style="display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:22px">
-        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
-        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
+        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" width="646" height="250" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
       </div>
       <div class="btn-row">
         <a href="/pricing" class="btn btn-ghost">See pricing</a>
@@ -475,12 +488,12 @@
         </a>
         <p>Turn field documentation into professional project reports. Your project memory, organized by job.</p>
         <div class="foot-badges" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px">
-          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
-          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
+          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
+          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" width="646" height="250" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
         </div>
       </div>
       <div class="foot-col">
-        <h5>Product</h5>
+        <h3>Product</h3>
         <a href="/features">Features</a>
         <a href="/use-cases">Use cases</a>
         <a href="/#reports">Reports</a>
@@ -489,13 +502,13 @@
         <a href="/resources/">Resources</a>
       </div>
       <div class="foot-col">
-        <h5>Company</h5>
+        <h3>Company</h3>
         <a href="/about">About</a>
         <a href="/#download">Download</a>
         <a href="/contact">Contact</a>
       </div>
       <div class="foot-col">
-        <h5>Legal</h5>
+        <h3>Legal</h3>
         <a href="/terms">Terms</a>
         <a href="/privacy">Privacy</a>
         <a href="/privacy">AI disclaimer</a>

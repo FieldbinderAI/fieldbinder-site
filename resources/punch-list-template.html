@@ -136,7 +136,7 @@
   .foot-brand{max-width:300px}
   .foot-brand .brand{margin-bottom:16px}
   .foot-brand p{color:var(--text-2);font-size:14px;line-height:1.6}
-  .foot-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px}
+  .foot-col h3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px;font-weight:700;line-height:1.6}
   .foot-col a{display:block;color:var(--text-2);font-size:14px;margin-bottom:12px;transition:color .16s}
   .foot-col a:hover{color:var(--text)}
   .foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap;gap:16px}
@@ -165,6 +165,8 @@
   .article p{color:var(--text-2);font-size:16px;margin-bottom:18px;line-height:1.75}
   .byline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--text-3);font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;margin:18px 0 40px}
   .byline time{color:var(--text-3)}
+  .byline a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .sources{padding-left:22px}.sources li{margin:8px 0}.sources .pub{color:var(--text-3)}
   .download-block{background:var(--bg-elev);border:1px solid var(--line-bright);border-radius:var(--radius);padding:28px;margin:40px 0}
   .download-block h2{margin-top:0}
   .download-block p{margin-bottom:18px}
@@ -196,6 +198,7 @@
         "https://play.google.com/store/apps/details?id=ai.fieldbinder.app",
         "https://github.com/FieldbinderAI"
       ],
+      "contactPoint": {"@type": "ContactPoint", "email": "contact@fieldbinder.ai", "contactType": "customer support"},
       "founder": {
         "@id": "https://fieldbinder.ai/#founder"
       }
@@ -247,7 +250,7 @@
       "headline": "Punch List Template and How to Close One Out",
       "description": "A punch list template you can print or fill in Word, and a closeout process that gets items signed off instead of argued about — from a working PM.",
       "datePublished": "2026-09-28",
-      "dateModified": "2026-09-28",
+      "dateModified": "2026-10-13",
       "author": {
         "@id": "https://fieldbinder.ai/#founder"
       },
@@ -278,7 +281,7 @@
       "name": "Who is responsible for creating the punch list?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Usually the owner's representative, architect, engineer, or project manager conducting the inspection, walked jointly with the contractor. The contractor may keep their own internal list, but the list of record is the one the owner's side issues and verifies."
+        "text": "It depends on the contract. Under AIA A201-2017 the contractor prepares the initial list (9.8.2) and the architect's inspection adds to it (9.8.3); on owner-led industrial work it is often the owner's representative or project manager, walked jointly with the contractor. Either way, the list of record is the one the owner's side issues and verifies. The contractor may keep their own internal list, but the list of record is the one the owner's side issues and verifies."
       }
     },
     {
@@ -351,7 +354,7 @@
     <article class="article">
       <h1>Punch List Template and How to Close One Out</h1>
       <div class="byline">
-        <span>By Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects</span>
+        <span>By <a href="/about">Steve Burton, PMP</a> — 19+ years in plant engineering, maintenance, and capital projects</span>
         <time datetime="2026-09-28">September 28, 2026</time>
       </div>
 
@@ -363,7 +366,7 @@
       <ol>
         <li><strong>A work list for the contractor.</strong> Each item tells a trade what to fix and where.</li>
         <li><strong>An acceptance record for the owner.</strong> Each closed item is a small sign-off; the closed list is the acceptance.</li>
-        <li><strong>The evidence when the two disagree.</strong> Retainage, final payment, and warranty start dates often hang on whether the punch list was closed and when.</li>
+        <li><strong>The evidence when the two disagree.</strong> Under many contracts, retainage and final payment depend on whether the punch list was closed, and when. Warranty periods usually start earlier, at Substantial Completion, so check what yours says.</li>
       </ol>
       <p>It is not a wish list, a change order, or a place for scope that was never in the contract. If an item is new scope, it goes into a change request, not the punch list. Mixing the two is the fastest way to lose the contractor's cooperation on the items that are legitimately theirs.</p>
       <h2>What belongs on every punch item</h2>
@@ -391,7 +394,7 @@
       <p><strong>Photograph everything you write.</strong> Not selectively — everything. The item you skip the photo on is the one that gets disputed.</p>
       <p><strong>Capture as you go, not at the end.</strong> Notes reconstructed in the truck lose the location detail that makes an item closeable. If you are dictating, say the location first every time.</p>
       <p><strong>Do not stop to argue on the walk.</strong> If the contractor disagrees that an item is theirs, mark it "Unassigned" and move on. Ownership gets settled at the punch meeting with the drawings open, not standing in a corridor.</p>
-      <p><strong>Issue the list within 24 hours.</strong> A punch list that arrives a week after the walk is already stale; conditions change, and so do memories.</p>
+      <p><strong>Issue the list promptly, ideally within a day.</strong> A punch list that arrives a week after the walk is already stale; conditions change, and so do memories.</p>
       <h2>Closing one out</h2>
       <p>Closeout is where the money is, and it is where most punch lists fall apart. The process that holds up:</p>
       <ol>
@@ -406,7 +409,7 @@
         <li><strong>A closeout photo for every item that had a condition photo.</strong> Same location, same angle. Two photos side by side end most disputes before they start.</li>
         <li><strong>Reissue the list after each round, not a marked-up copy.</strong> Everyone works from the same current version. The old versions stay in the project file as the record.</li>
       </ul>
-      <p>When the list reaches zero open items, the closed list — with dates, verifiers, and photos — is the acceptance document. Attach it to the final pay application and the warranty start letter.</p>
+      <p>When the list reaches zero open items, the closed list — with dates, verifiers, and photos — is the acceptance document. Attach it to the final pay application and keep it with the closeout and warranty documents, if your contract asks for it.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li><strong>Writing instructions instead of observations.</strong> "Fix the leak" cannot be verified. "Water staining on ceiling tile below AHU-2 condensate line" can.</li>
@@ -414,7 +417,7 @@
         <li><strong>Letting the contractor close items.</strong> They report; you close.</li>
         <li><strong>Combining items to keep the list short.</strong> A short list of vague items takes longer to close than a long list of specific ones.</li>
         <li><strong>Punching scope that was never in the contract.</strong> It poisons the whole list. Route new scope through a change request.</li>
-        <li><strong>No closeout photos.</strong> Six months later, when a warranty item comes up, the closeout photo is the only proof of the condition at acceptance.</li>
+        <li><strong>No closeout photos.</strong> Six months later, when a warranty item comes up, the closeout photo is the best proof of the condition at acceptance.</li>
       </ul>
       <div class="download-block">
       <h2>Download the template</h2>
@@ -434,7 +437,7 @@
       <h3>What is the difference between a punch list and a deficiency list?</h3>
       <p>In practice they are the same document. "Punch list" is the North American construction term; "deficiency list" or "snag list" is used in other regions and in some facility and industrial contexts. The structure in this guide works for any of them.</p>
       <h3>Who is responsible for creating the punch list?</h3>
-      <p>Usually the owner's representative, architect, engineer, or project manager conducting the inspection, walked jointly with the contractor. The contractor may keep their own internal list, but the list of record is the one the owner's side issues and verifies.</p>
+      <p>It depends on the contract. Under AIA A201-2017 the contractor prepares the initial list (9.8.2) and the architect's inspection adds to it (9.8.3); on owner-led industrial work it is often the owner's representative or project manager, walked jointly with the contractor. Either way, the list of record is the one the owner's side issues and verifies. The contractor may keep their own internal list, but the list of record is the one the owner's side issues and verifies.</p>
       <h3>Should the contractor be allowed to close punch items?</h3>
       <p>The contractor reports an item as complete; the owner's side verifies and closes it. Separating those two steps is what gives the closed list its standing when payment or warranty questions come up later.</p>
       <h3>How many items is too many for a punch list?</h3>
@@ -444,8 +447,17 @@
       </section>
       <!-- BODY:END -->
 
+      <h2>Sources</h2>
+      <ol class="sources">
+        <li><a href="https://contractdocs.aia.org/PreviewFiles/Preview_A201-2017.pdf" rel="noopener">Document A201® – 2017, General Conditions of the Contract for Construction</a> <span class="pub">— AIA Contract Documents (public preview).</span> Sections 9.8.2–9.8.5 (the list of items to be completed or corrected, warranties commencing at Substantial Completion, retainage), 9.10 (final payment) and 12.2.2.1 (the one-year correction period).</li>
+        <li><a href="https://help.aiacontracts.com/hc/en-us/articles/1500010259162-summary-a201-2017-general-conditions-of-the-contract-for-construction" rel="noopener">Summary: A201®–2017, General Conditions of the Contract for Construction</a> <span class="pub">— AIA Contract Documents.</span> The publisher's summary: special warranties start under 9.8.4; claims need 21 days' notice.</li>
+      </ol>
+
       <h2>Related</h2>
       <ul class="related-list">
+        <li><a href="/resources/how-to-write-a-daily-field-report">How to Write a Daily Field Report (Template)</a></li>
+        <li><a href="/resources/rfi-log-template">RFI Log Template and How to Run One</a></li>
+        <li><a href="/resources/executive-summary-template">Project Executive Summary Template and How to Write One</a></li>
         <li><a href="/use-cases/contractors">Daily reports and punch lists for contractors</a></li>
         <li><a href="/use-cases/project-managers">Field documentation for project managers</a></li>
         <li><a href="/use-cases/owners-reps">Site visit reports for owner's representatives</a></li>
@@ -463,8 +475,8 @@
       <h2>Ready to see it <span class="accent">in the field?</span></h2>
       <p>Now available on iPhone and Android.</p>
       <div class="store-badges" style="display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:22px">
-        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
-        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
+        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" width="646" height="250" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
       </div>
       <div class="btn-row">
         <a href="/pricing" class="btn btn-ghost">See pricing</a>
@@ -484,12 +496,12 @@
         </a>
         <p>Turn field documentation into professional project reports. Your project memory, organized by job.</p>
         <div class="foot-badges" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px">
-          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
-          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
+          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
+          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" width="646" height="250" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
         </div>
       </div>
       <div class="foot-col">
-        <h5>Product</h5>
+        <h3>Product</h3>
         <a href="/features">Features</a>
         <a href="/use-cases">Use cases</a>
         <a href="/#reports">Reports</a>
@@ -498,13 +510,13 @@
         <a href="/resources/">Resources</a>
       </div>
       <div class="foot-col">
-        <h5>Company</h5>
+        <h3>Company</h3>
         <a href="/about">About</a>
         <a href="/#download">Download</a>
         <a href="/contact">Contact</a>
       </div>
       <div class="foot-col">
-        <h5>Legal</h5>
+        <h3>Legal</h3>
         <a href="/terms">Terms</a>
         <a href="/privacy">Privacy</a>
         <a href="/privacy">AI disclaimer</a>
