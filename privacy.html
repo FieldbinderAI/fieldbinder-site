@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
+<!-- HeyCatch analytics (HEYCATCH-TRACKER-1): one shared module for every page, see /assets/heycatch.js -->
+<script type="module" src="/assets/heycatch.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CFB4WC53K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -110,7 +112,7 @@
   .foot-brand{max-width:300px}
   .foot-brand .brand{margin-bottom:16px}
   .foot-brand p{color:var(--text-2);font-size:14px;line-height:1.6}
-  .foot-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px}
+  .foot-col h3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px;font-weight:700;line-height:1.6}
   .foot-col a{display:block;color:var(--text-2);font-size:14px;margin-bottom:12px;transition:color .16s}
   .foot-col a:hover{color:var(--text)}
   .foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap;gap:16px}
@@ -137,6 +139,7 @@
         "https://play.google.com/store/apps/details?id=ai.fieldbinder.app",
         "https://github.com/FieldbinderAI"
       ],
+      "contactPoint": {"@type": "ContactPoint", "email": "contact@fieldbinder.ai", "contactType": "customer support"},
       "founder": {
         "@id": "https://fieldbinder.ai/#founder"
       }
@@ -221,7 +224,7 @@
     <div class="inner">
       <span class="eyebrow">Legal</span>
       <h1>Privacy Policy</h1>
-      <p class="updated">Effective date: August 16, 2026 · Last updated: September 18, 2026</p>
+      <p class="updated">Effective date: August 16, 2026 · Last updated: October 14, 2026</p>
     </div>
     <div class="toc">
       <a href="#p1">1 Introduction</a><a href="#p2">2 Information We Collect</a><a href="#p3">3 How We Use Information</a><a href="#p4">4 Artificial-Intelligence Processing and Third-Party AI Providers</a><a href="#p5">5 How We Share Information</a><a href="#p6">6 Data Retention and Deletion</a><a href="#p7">7 Your Choices and Rights</a><a href="#p8">8 Security</a><a href="#p9">9 Third-Party Personal Information You Provide</a><a href="#p10">10 Children</a><a href="#p11">11 Changes to This Policy</a><a href="#p12">12 Contact Us</a>
@@ -231,7 +234,7 @@
 
 <div class="wrap">
   <div class="doc">
-    <p><b>FieldBinder AI — Privacy Policy</b></p><p><em>FieldBinder AI LLC, an Ohio limited liability company</em></p><p><b>Effective date: August 16, 2026</b> <b>Last updated: September 18, 2026 (added crash reporting)</b></p>
+    <p><b>FieldBinder AI — Privacy Policy</b></p><p><em>FieldBinder AI LLC, an Ohio limited liability company</em></p><p><b>Effective date: August 16, 2026</b> <b>Last updated: October 14, 2026 (added website analytics)</b></p>
 
     <section id="p1">
       <h2><span class="n">01</span>Introduction</h2>
@@ -240,7 +243,7 @@
 
     <section id="p2">
       <h2><span class="n">02</span>Information We Collect</h2>
-      <h3>2.1 Information you provide</h3><ul><li><b>Account information</b> — your name and the email address used to register, and your organization/company name.</li><li><b>Project information</b> — project names, numbers, status, and details you enter, including third-party contact names, contact emails, contact phone numbers, and project site locations.</li><li><b>Captured content</b> — photos, short videos, voice notes, text notes, files, measurements, and related field data you capture, together with metadata such as capture time, file type, size, and media duration.</li><li><b>Voice transcripts and generated reports</b> — text transcribed from your voice notes and the report content generated from your captures.</li><li><b>Support communications</b> — information you provide when you contact us.</li></ul><h3>2.2 Information collected automatically</h3><ul><li><b>Usage and device information</b> — limited technical and usage data necessary to operate the Service, such as feature usage counters and information required for syncing and error handling.</li><li><b>Subscription identifiers</b> — an identifier associating your account with your subscription (for example, a subscription-management identifier).</li><li><b>Crash reports and platform diagnostics</b> — if the app crashes or hits an internal error, the app sends a crash report to our crash-reporting provider (Sentry, United States). A crash report contains technical information about the failure — the stack trace, app version and build, device model and operating-system version, and a short identifier derived from your account so we can tell repeat failures apart — and never your name, email address, project names, or captured content, which the app removes before sending; for crashes that occur outside the app’s JavaScript layer, the same technical information is sent without that additional filtering. The Apple App Store and Google Play may also collect standard platform-level diagnostics, such as aggregate crash and app-delivery logs, under their own terms. The app does not include advertising SDKs or cross-app or cross-site tracking technologies, and we do not build advertising or behavioral profiles about you. Our subscription-management provider’s software development kit collects limited device and subscription identifiers necessary to associate your account with your subscription, as described above.</li><li>Location information — we do not collect precise device location. The app requests no location permission, and it does not read or store the location metadata (EXIF GPS) that a camera may embed in a photo; photos are re-encoded before upload. Photos and files you upload may contain other metadata you created (such as capture time), which we store as part of your Customer Content.</li></ul><h3>2.3 Payment information</h3><p>Subscriptions are purchased through the Apple App Store. Apple processes your payment; we do not collect or store your full payment-card details.</p><h3>2.4 Our marketing website</h3><p>Our marketing website (fieldbinder.ai) collects only information you choose to submit — specifically, an email address you enter on the early-access form — and standard server logs used to operate and secure the site. The marketing website fieldbinder.ai uses Google Analytics, which sets cookies to measure site traffic; this applies to the website only, not to the FieldBinder AI app or portal. The website loads fonts from Google Fonts; as a result, your browser’s IP address is disclosed to Google when a page loads. Early-access form submissions are processed and stored by our website host (Netlify).</p>
+      <h3>2.1 Information you provide</h3><ul><li><b>Account information</b> — your name and the email address used to register, and your organization/company name.</li><li><b>Project information</b> — project names, numbers, status, and details you enter, including third-party contact names, contact emails, contact phone numbers, and project site locations.</li><li><b>Captured content</b> — photos, short videos, voice notes, text notes, files, measurements, and related field data you capture, together with metadata such as capture time, file type, size, and media duration.</li><li><b>Voice transcripts and generated reports</b> — text transcribed from your voice notes and the report content generated from your captures.</li><li><b>Support communications</b> — information you provide when you contact us.</li></ul><h3>2.2 Information collected automatically</h3><ul><li><b>Usage and device information</b> — limited technical and usage data necessary to operate the Service, such as feature usage counters and information required for syncing and error handling.</li><li><b>Subscription identifiers</b> — an identifier associating your account with your subscription (for example, a subscription-management identifier).</li><li><b>Crash reports and platform diagnostics</b> — if the app crashes or hits an internal error, the app sends a crash report to our crash-reporting provider (Sentry, United States). A crash report contains technical information about the failure — the stack trace, app version and build, device model and operating-system version, and a short identifier derived from your account so we can tell repeat failures apart — and never your name, email address, project names, or captured content, which the app removes before sending; for crashes that occur outside the app’s JavaScript layer, the same technical information is sent without that additional filtering. The Apple App Store and Google Play may also collect standard platform-level diagnostics, such as aggregate crash and app-delivery logs, under their own terms. The app does not include advertising SDKs or cross-app or cross-site tracking technologies, and we do not build advertising or behavioral profiles about you. Our subscription-management provider’s software development kit collects limited device and subscription identifiers necessary to associate your account with your subscription, as described above.</li><li>Location information — we do not collect precise device location. The app requests no location permission, and it does not read or store the location metadata (EXIF GPS) that a camera may embed in a photo; photos are re-encoded before upload. Photos and files you upload may contain other metadata you created (such as capture time), which we store as part of your Customer Content.</li></ul><h3>2.3 Payment information</h3><p>Subscriptions are purchased through the Apple App Store. Apple processes your payment; we do not collect or store your full payment-card details.</p><h3>2.4 Our marketing website</h3><p>Our marketing website (fieldbinder.ai) collects only information you choose to submit — specifically, an email address you enter on the early-access form — and standard server logs used to operate and secure the site. The marketing website fieldbinder.ai uses Google Analytics, which sets cookies to measure site traffic; this applies to the website only, not to the FieldBinder AI app or portal. The website also uses HeyCatch analytics, which measures page views and clicks; this applies to the website only. The website loads fonts from Google Fonts; as a result, your browser’s IP address is disclosed to Google when a page loads. Early-access form submissions are processed and stored by our website host (Netlify).</p>
     </section>
 
     <section id="p3">
@@ -306,12 +309,12 @@
         </a>
         <p>Turn field documentation into professional project reports. Your project memory, organized by job.</p>
         <div class="foot-badges" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px">
-          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
-          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
+          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="assets/badges/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
+          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="assets/badges/google-play-badge.png" width="646" height="250" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
         </div>
       </div>
       <div class="foot-col">
-        <h5>Product</h5>
+        <h3>Product</h3>
         <a href="features.html">Features</a>
         <a href="use-cases.html">Use cases</a>
         <a href="index.html#reports">Reports</a>
@@ -320,13 +323,13 @@
         <a href="/resources/">Resources</a>
       </div>
       <div class="foot-col">
-        <h5>Company</h5>
+        <h3>Company</h3>
         <a href="about.html">About</a>
         <a href="index.html#download">Download</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
-        <h5>Legal</h5>
+        <h3>Legal</h3>
         <a href="terms.html">Terms</a>
         <a href="privacy.html">Privacy</a>
         <a href="privacy.html">AI disclaimer</a>
