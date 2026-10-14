@@ -136,7 +136,7 @@
   .foot-brand{max-width:300px}
   .foot-brand .brand{margin-bottom:16px}
   .foot-brand p{color:var(--text-2);font-size:14px;line-height:1.6}
-  .foot-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px}
+  .foot-col h3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px;font-weight:700;line-height:1.6}
   .foot-col a{display:block;color:var(--text-2);font-size:14px;margin-bottom:12px;transition:color .16s}
   .foot-col a:hover{color:var(--text)}
   .foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap;gap:16px}
@@ -165,6 +165,8 @@
   .article p{color:var(--text-2);font-size:16px;margin-bottom:18px;line-height:1.75}
   .byline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--text-3);font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;margin:18px 0 40px}
   .byline time{color:var(--text-3)}
+  .byline a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .sources{padding-left:22px}.sources li{margin:8px 0}.sources .pub{color:var(--text-3)}
   .download-block{background:var(--bg-elev);border:1px solid var(--line-bright);border-radius:var(--radius);padding:28px;margin:40px 0}
   .download-block h2{margin-top:0}
   .download-block p{margin-bottom:18px}
@@ -195,6 +197,7 @@
         "https://play.google.com/store/apps/details?id=ai.fieldbinder.app",
         "https://github.com/FieldbinderAI"
       ],
+      "contactPoint": {"@type": "ContactPoint", "email": "contact@fieldbinder.ai", "contactType": "customer support"},
       "founder": {
         "@id": "https://fieldbinder.ai/#founder"
       }
@@ -246,7 +249,7 @@
       "headline": "How to Write a Daily Field Report (Template)",
       "description": "A practical guide to writing a daily field report that holds up later, with a free downloadable template built from a working PM's format.",
       "datePublished": "2026-09-28",
-      "dateModified": "2026-09-28",
+      "dateModified": "2026-10-13",
       "author": {
         "@id": "https://fieldbinder.ai/#founder"
       },
@@ -301,7 +304,7 @@
       "name": "Can a daily field report be used in a dispute?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Daily reports written on the day are routinely relied on in schedule and payment disputes, which is the reason to write them on the day, in fact-based language, with dated photos. This guide is not legal advice; ask your counsel how your project's records should be kept."
+        "text": "Daily reports written on the day are often part of the record when schedule and payment questions come up, which is the reason to write them on the day, in fact-based language, with dated photos. This guide is not legal advice; ask your counsel how your project's records should be kept."
       }
     }
   ]
@@ -350,7 +353,7 @@
     <article class="article">
       <h1>How to Write a Daily Field Report (Template)</h1>
       <div class="byline">
-        <span>By Steve Burton, PMP — 19+ years in plant engineering, maintenance, and capital projects</span>
+        <span>By <a href="/about">Steve Burton, PMP</a> — 19+ years in plant engineering, maintenance, and capital projects</span>
         <time datetime="2026-09-28">September 28, 2026</time>
       </div>
 
@@ -360,7 +363,7 @@
       <h2>What a daily field report is for</h2>
       <p>Three things, in order of how often they matter:</p>
       <ol>
-        <li><strong>A record written on the day.</strong> Dated, factual, written before memory has a chance to drift. In a dispute, a daily written at the time carries weight that memory and email threads do not.</li>
+        <li><strong>A record written on the day.</strong> Dated, factual, written before memory has a chance to drift. A record made on the day is easier to rely on than memory or a rebuilt email thread.</li>
         <li><strong>A progress signal.</strong> The owner, the GC, or your own manager should be able to read it in two minutes and know whether the day went to plan.</li>
         <li><strong>The source for everything downstream.</strong> Weekly summaries, punch lists, RFIs, and closeout documentation are easier to build from clean dailies than from a camera roll.</li>
       </ol>
@@ -382,7 +385,7 @@
       <p>Three to five sentences. What was the plan for the day, what got done, and the single most important thing a reader needs to know. If the day went to plan, say so in one line and move on.</p>
       <p>Write it last, after the other sections are filled in. A summary written first tends to describe intentions rather than results.</p>
       <p><em>Weak:</em> "Good progress today, a few issues but overall on track."</p>
-      <p><em>Better:</em> "Demolition of the north wall plate complete; contractor found corroded steel behind it (see Issues). Electrical rough-in in Room 104 started a day early. One recordable safety observation, closed on site."</p>
+      <p><em>Better:</em> "Demolition of the north wall plate complete; contractor found corroded steel behind it (see Issues). Electrical rough-in in Room 104 started a day early. One safety observation, corrected on site."</p>
       <h3>2. Work Performed</h3>
       <p>The factual account of what was done, by whom, and where. One line per activity, in the order it happened or by area. Include quantities where they exist — linear feet installed, panels set, tests completed — because quantities are what the pay application will be checked against.</p>
       <p>Name the contractor or trade, not individuals, unless the individual matters (an inspector, an engineer of record, a customer representative making a decision).</p>
@@ -458,12 +461,22 @@
       <h3>What is the difference between a daily report and a daily log?</h3>
       <p>In practice the terms are used interchangeably. Some firms use "log" for a short, form-based entry and "report" for a narrative document sent to the owner. The structure in this guide works for either.</p>
       <h3>Can a daily field report be used in a dispute?</h3>
-      <p>Daily reports written on the day are routinely relied on in schedule and payment disputes, which is the reason to write them on the day, in fact-based language, with dated photos. This guide is not legal advice; ask your counsel how your project's records should be kept.</p>
+      <p>Daily reports written on the day are often part of the record when schedule and payment questions come up, which is the reason to write them on the day, in fact-based language, with dated photos. This guide is not legal advice; ask your counsel how your project's records should be kept.</p>
       </section>
       <!-- BODY:END -->
 
+      <h2>Sources</h2>
+      <ol class="sources">
+        <li><a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1904/1904.7" rel="noopener">1904.7 - General recording criteria.</a> <span class="pub">— OSHA, 29 CFR 1904.7.</span> What makes an injury or illness a recordable case — the reason this guide does not call a safety observation recordable.</li>
+        <li><a href="https://www.osha.gov/sites/default/files/publications/OSHA3886.pdf" rel="noopener">Recommended Practices for Safety &amp; Health Programs in Construction</a> <span class="pub">— OSHA 3886, October 2016.</span> Reporting near misses and close calls and holding toolbox talks as recommended practices — the items in the Safety section.</li>
+        <li><a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.20" rel="noopener">1926.20 - General safety and health provisions.</a> <span class="pub">— OSHA, 29 CFR 1926.20.</span> Paragraph (b)(2): frequent and regular job-site inspections by competent persons — the observations and corrective actions a daily records.</li>
+      </ol>
+
       <h2>Related</h2>
       <ul class="related-list">
+        <li><a href="/resources/punch-list-template">Punch List Template and How to Close One Out</a></li>
+        <li><a href="/resources/rfi-log-template">RFI Log Template and How to Run One</a></li>
+        <li><a href="/resources/executive-summary-template">Project Executive Summary Template and How to Write One</a></li>
         <li><a href="/use-cases/project-managers">Field documentation for project managers</a></li>
         <li><a href="/use-cases/contractors">Daily reports and punch lists for contractors</a></li>
         <li><a href="/use-cases/owners-reps">Site visit reports for owner's representatives</a></li>
@@ -481,8 +494,8 @@
       <h2>Ready to see it <span class="accent">in the field?</span></h2>
       <p>Now available on iPhone and Android.</p>
       <div class="store-badges" style="display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:22px">
-        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
-        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
+        <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" style="height:44px;width:auto;display:block"></a>
+        <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" width="646" height="250" alt="Get it on Google Play" style="height:66px;width:auto;display:block"></a>
       </div>
       <div class="btn-row">
         <a href="/pricing" class="btn btn-ghost">See pricing</a>
@@ -502,12 +515,12 @@
         </a>
         <p>Turn field documentation into professional project reports. Your project memory, organized by job.</p>
         <div class="foot-badges" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px">
-          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
-          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
+          <a href="https://apps.apple.com/us/app/fieldbinder-ai/id6792522520" class="store-badge" data-store="ios" target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/assets/badges/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" style="height:40px;width:auto;display:block"></a>
+          <a href="https://play.google.com/store/apps/details?id=ai.fieldbinder.app" class="store-badge" data-store="android" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/assets/badges/google-play-badge.png" width="646" height="250" alt="Get it on Google Play" style="height:60px;width:auto;display:block"></a>
         </div>
       </div>
       <div class="foot-col">
-        <h5>Product</h5>
+        <h3>Product</h3>
         <a href="/features">Features</a>
         <a href="/use-cases">Use cases</a>
         <a href="/#reports">Reports</a>
@@ -516,13 +529,13 @@
         <a href="/resources/">Resources</a>
       </div>
       <div class="foot-col">
-        <h5>Company</h5>
+        <h3>Company</h3>
         <a href="/about">About</a>
         <a href="/#download">Download</a>
         <a href="/contact">Contact</a>
       </div>
       <div class="foot-col">
-        <h5>Legal</h5>
+        <h3>Legal</h3>
         <a href="/terms">Terms</a>
         <a href="/privacy">Privacy</a>
         <a href="/privacy">AI disclaimer</a>
