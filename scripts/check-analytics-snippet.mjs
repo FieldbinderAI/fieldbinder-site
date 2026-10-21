@@ -52,6 +52,10 @@ for (const f of pages) {
   check(ok, `${rel}: snippet x${occ}, before SEO-2A and </body>`);
 }
 
+check(snippet.includes('fb-contact-sent'), 'snippet listens for fb-contact-sent');
+const contact = read(path.join(root, 'contact.html'));
+check(count(contact, "dispatchEvent(new CustomEvent('fb-contact-sent'))") === 1, 'contact.html dispatches fb-contact-sent exactly once');
+
 const headers = read(path.join(root, '_headers'));
 const cspLines = headers.split('\n').filter((l) => /^\s*Content-Security-Policy/i.test(l));
 check(cspLines.length === 1 && /^\s*Content-Security-Policy-Report-Only:/.test(cspLines[0]), '_headers has exactly one CSP line (Report-Only)');

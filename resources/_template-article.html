@@ -428,17 +428,8 @@
   document.querySelectorAll('a[data-store="ios"]').forEach(function (a) { a.href = APP_STORE_URL; });
 </script>
 <script>
-/* WEB-ANALYTICS-1: first-party cookieless beacon; no cookies/localStorage; server stores no IP/UA */
-!function(){try{var n=navigator,w=window,d=document,L=location;if(n.doNotTrack=="1"||w.doNotTrack=="1"||n.msDoNotTrack=="1"||n.globalPrivacyControl)return;
-var U="https://lrvvdmkzgrtkhihmozsz.supabase.co/functions/v1/track",s=null,r=null;
-try{s=sessionStorage.getItem("fb_sid");if(!s&&crypto.randomUUID){s=crypto.randomUUID();sessionStorage.setItem("fb_sid",s)}}catch(e){s=null}
-try{if(d.referrer){r=new URL(d.referrer).hostname.toLowerCase();if(r===L.hostname||!/^[a-z0-9.-]{1,200}$/.test(r))r=null}}catch(e){r=null}
-var q=new URLSearchParams(L.search),u=k=>(k=q.get(k))&&k.replace(/[\x00-\x1f\x7f]/g,"").slice(0,100)||null;
-function t(v){var b=JSON.stringify({event:v,path:L.pathname.slice(0,300),referrer_host:r,utm_source:u("utm_source"),utm_medium:u("utm_medium"),utm_campaign:u("utm_campaign"),session_id:s});if(!(n.sendBeacon&&n.sendBeacon(U,b))&&w.fetch)fetch(U,{method:"POST",body:b,keepalive:!0}).catch(()=>{})}
-t("pageview");if(/^\/pricing(\.html)?\/?$/.test(L.pathname))t("pricing_view");
-d.addEventListener("click",e=>{var x=e.target,a=x&&x.closest&&x.closest("a[href]"),h=(a&&a.href)+"";~h.indexOf("apps.apple.com")?t("cta_store_ios"):~h.indexOf("play.google.com")?t("cta_store_android"):~h.indexOf("app.fieldbinder.ai")&&t("cta_portal_signup")},!0);
-d.addEventListener("submit",e=>{var f=e.target;f&&f.getAttribute&&f.getAttribute("name")==="contact"&&t("contact_submit")},!0)
-}catch(e){}}();
+/* WEB-ANALYTICS-1 first-party cookieless beacon */
+!function(){try{var n=navigator,w=window,d=document,L=location,A=d.addEventListener.bind(d);if(n.doNotTrack=="1"||w.doNotTrack=="1"||n.msDoNotTrack=="1"||n.globalPrivacyControl)return;var U="https://lrvvdmkzgrtkhihmozsz.supabase.co/functions/v1/track",s=null,r=null,C=/[\x00-\x1f\x7f-\x9f\u2028\u2029]/g;try{s=sessionStorage.getItem("fb_sid");if(!/^[0-9a-f-]{36}$/i.test(s)){s=crypto.randomUUID?crypto.randomUUID():null;if(s)sessionStorage.setItem("fb_sid",s)}}catch(e){s=null}try{if(d.referrer){r=new URL(d.referrer).hostname.toLowerCase();if(r===L.hostname||!/^[a-z0-9.-]{1,200}$/.test(r))r=null}}catch(e){r=null}var q=new URLSearchParams(L.search),u=k=>(k=q.get(k))&&k.replace(C,"").slice(0,100).replace(/[\ud800-\udbff]$/,"")||null;function t(v){var b=JSON.stringify({event:v,path:L.pathname.slice(0,300),referrer_host:r,utm_source:u("utm_source"),utm_medium:u("utm_medium"),utm_campaign:u("utm_campaign"),session_id:s});if(!(n.sendBeacon&&n.sendBeacon(U,b))&&w.fetch)fetch(U,{method:"POST",body:b,keepalive:!0}).catch(()=>{})}t("pageview");if(/^\/pricing(\.html)?\/?$/.test(L.pathname))t("pricing_view");var c=e=>{if(e.type=="auxclick"&&e.button!=1)return;var x=e.target,a=x&&x.closest&&x.closest("a[href]"),h=(a&&a.hostname)+"";h=="apps.apple.com"?t("cta_store_ios"):h=="play.google.com"?t("cta_store_android"):h=="app.fieldbinder.ai"&&t("cta_portal_signup")};A("click",c,!0);A("auxclick",c,!0);A("fb-contact-sent",()=>t("contact_submit"))}catch(e){}}();
 </script>
 <script>
   /* SEO-2A: GA4 key events — no PII in any parameter */

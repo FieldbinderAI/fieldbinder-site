@@ -13,9 +13,10 @@ const code = html.slice(html.indexOf('<script>') + 8, html.lastIndexOf('</script
 
 const URL_ = 'https://lrvvdmkzgrtkhihmozsz.supabase.co/functions/v1/track';
 const UUID = '11111111-2222-4333-8444-555555555555';
+const OTHER_UUID = '99999999-8888-4777-8666-555555555555';
 
 // opts: pathname, search, hostname, referrer, nav (extra navigator fields), noBeacon, beaconResult,
-// storage ('throw' | Map-seed object), win (extra window fields), rawSearch (non-string location.search)
+// storage ('throw' | seed object), win (extra window fields), rawSearch (non-string location.search)
 function run(opts = {}) {
   const beacons = [];
   const fetches = [];
@@ -34,6 +35,7 @@ function run(opts = {}) {
   const document = {
     referrer: opts.referrer || '',
     addEventListener(type, fn, capture) { listeners[type] = { fn, capture }; },
+    dispatchEvent(ev) { if (listeners[ev.type]) listeners[ev.type].fn(ev); return true; },
   };
   const location = {
     pathname: opts.pathname ?? '/',
@@ -51,11 +53,19 @@ function run(opts = {}) {
   const ctx = vm.createContext(sandbox);
   let thrown = null;
   try { vm.runInContext(code, ctx); } catch (e) { thrown = e; }
-  return { beacons, fetches, listeners, thrown, sandbox };
+  return { beacons, fetches, listeners, thrown, sandbox, store, document };
 }
 
 const events = (r) => r.beacons.map((b) => JSON.parse(b.body).event);
-const click = (r, anchor) => r.listeners.click.fn({ target: { closest: () => anchor } });
+// An <img>-like child: closest(sel) must be asked for exactly 'a[href]' and returns the anchor.
+const child = (anchor) => ({
+  closest(sel) {
+    assert.equal(sel, 'a[href]');
+    return anchor;
+  },
+});
+const click = (r, anchor, type = 'click', button = 0) => r.listeners[type].fn({ type, button, target: child(anchor) });
+const anchorTo = (hostname, href) => ({ hostname, href: href || `https://${hostname}/` });
 
 test('pageview on load', () => {
   const r = run();
@@ -72,11 +82,15 @@ test('pageview on load', () => {
   assert.equal(o.referrer_host, null);
 });
 
-test('referrer host is lowercased and same-site is dropped', () => {
+test('referrer host is lowercased; same-site and non-hostnames are dropped', () => {
   const a = run({ referrer: 'https://News.YCombinator.com/item?id=1' });
   assert.equal(JSON.parse(a.beacons[0].body).referrer_host, 'news.ycombinator.com');
   const b = run({ referrer: 'https://fieldbinder.ai/pricing', hostname: 'fieldbinder.ai' });
   assert.equal(JSON.parse(b.beacons[0].body).referrer_host, null);
+  const c = run({ referrer: 'https://bad_host.example/' });
+  assert.equal(JSON.parse(c.beacons[0].body).referrer_host, null);
+  const d = run({ referrer: 'https://[::1]/' });
+  assert.equal(JSON.parse(d.beacons[0].body).referrer_host, null);
 });
 
 test('utm values: kept, cut to 100, control chars stripped', () => {
@@ -91,52 +105,97 @@ test('utm values: kept, cut to 100, control chars stripped', () => {
   assert.equal(p.utm_medium, 'social');
 });
 
-test('pricing_view fires on /pricing and /pricing.html only', () => {
-  const a = run({ pathname: '/pricing' });
-  assert.deepEqual(events(a), ['pageview', 'pricing_view']);
-  const b = run({ pathname: '/pricing.html' });
-  assert.deepEqual(events(b), ['pageview', 'pricing_view']);
-  const c = run({ pathname: '/features' });
-  assert.deepEqual(events(c), ['pageview']);
+test('utm: C1 controls and U+2028/9 are stripped', () => {
+  const r = run({ search: '?utm_source=a%C2%85b&utm_medium=c%E2%80%A8d&utm_campaign=e%E2%80%A9f%7Fg' });
+  const o = JSON.parse(r.beacons[0].body);
+  assert.equal(o.utm_source, 'ab');
+  assert.equal(o.utm_medium, 'cd');
+  assert.equal(o.utm_campaign, 'efg');
 });
 
-test('DNT and GPC send nothing', () => {
-  assert.equal(run({ nav: { doNotTrack: '1' } }).beacons.length, 0);
-  assert.equal(run({ win: { doNotTrack: '1' } }).beacons.length, 0);
-  assert.equal(run({ nav: { globalPrivacyControl: true } }).beacons.length, 0);
+test('utm: a lone high surrogate left by the 100-char cut is removed', () => {
+  const r = run({ search: '?utm_campaign=' + 'x'.repeat(99) + '😀' });
+  const body = r.beacons[0].body;
+  const v = JSON.parse(body).utm_campaign;
+  assert.ok(v.length <= 100);
+  assert.equal(/[\ud800-\udbff]$/.test(v), false);
+  assert.equal(body.includes('\\ud83d'), false);
+  assert.equal(v, 'x'.repeat(99));
+});
+
+test('pricing_view fires on /pricing, /pricing.html and /pricing/ only', () => {
+  assert.deepEqual(events(run({ pathname: '/pricing' })), ['pageview', 'pricing_view']);
+  assert.deepEqual(events(run({ pathname: '/pricing.html' })), ['pageview', 'pricing_view']);
+  assert.deepEqual(events(run({ pathname: '/pricing/' })), ['pageview', 'pricing_view']);
+  assert.deepEqual(events(run({ pathname: '/features' })), ['pageview']);
+  assert.deepEqual(events(run({ pathname: '/pricing-faq' })), ['pageview']);
+});
+
+test('DNT and GPC send nothing and register no listeners', () => {
+  for (const o of [
+    { nav: { doNotTrack: '1' } },
+    { win: { doNotTrack: '1' } },
+    { nav: { msDoNotTrack: '1' } },
+    { nav: { globalPrivacyControl: true } },
+  ]) {
+    const r = run(o);
+    assert.equal(r.beacons.length, 0);
+    assert.equal(r.fetches.length, 0);
+    assert.equal(Object.keys(r.listeners).length, 0);
+  }
   assert.equal(run({ nav: { doNotTrack: '0' } }).beacons.length, 1);
 });
 
-test('sessionStorage: throwing storage gives null id; existing id reused', () => {
+test('sessionStorage: throwing storage gives null id', () => {
   const a = run({ storage: 'throw' });
   assert.equal(a.beacons.length, 1);
   assert.equal(JSON.parse(a.beacons[0].body).session_id, null);
-  const b = run({ storage: { fb_sid: 'existing-id' } });
-  assert.equal(JSON.parse(b.beacons[0].body).session_id, 'existing-id');
 });
 
-test('click listener is capture-phase and maps CTAs', () => {
+test('sessionStorage: a malformed stored id is regenerated; a valid uuid is reused', () => {
+  const a = run({ storage: { fb_sid: 'existing-id' } });
+  assert.equal(JSON.parse(a.beacons[0].body).session_id, UUID);
+  assert.equal(a.store.get('fb_sid'), UUID);
+  const b = run({ storage: { fb_sid: OTHER_UUID } });
+  assert.equal(JSON.parse(b.beacons[0].body).session_id, OTHER_UUID);
+  assert.equal(b.store.get('fb_sid'), OTHER_UUID);
+});
+
+test('click and auxclick listeners are capture-phase and map CTAs by exact hostname', () => {
   const r = run();
   assert.equal(r.listeners.click.capture, true);
-  click(r, { href: 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520' });
-  click(r, { href: 'https://play.google.com/store/apps/details?id=ai.fieldbinder.app' });
-  click(r, { href: 'https://app.fieldbinder.ai' });
+  assert.equal(r.listeners.auxclick.capture, true);
+  click(r, anchorTo('apps.apple.com', 'https://apps.apple.com/us/app/fieldbinder-ai/id6792522520'));
+  click(r, anchorTo('play.google.com', 'https://play.google.com/store/apps/details?id=ai.fieldbinder.app'));
+  click(r, anchorTo('app.fieldbinder.ai'));
   assert.deepEqual(events(r), ['pageview', 'cta_store_ios', 'cta_store_android', 'cta_portal_signup']);
   const before = r.beacons.length;
-  click(r, { href: 'https://fieldbinder.ai/features' });
+  click(r, anchorTo('fieldbinder.ai', 'https://fieldbinder.ai/features'));
+  click(r, anchorTo('evil.com', 'https://evil.com/?x=apps.apple.com'));
+  click(r, anchorTo('apps.apple.com.evil.com', 'https://apps.apple.com.evil.com/'));
   assert.equal(r.beacons.length, before);
-  assert.doesNotThrow(() => r.listeners.click.fn({ target: {} }));
-  assert.doesNotThrow(() => r.listeners.click.fn({ target: null }));
+  assert.doesNotThrow(() => r.listeners.click.fn({ type: 'click', target: {} }));
+  assert.doesNotThrow(() => r.listeners.click.fn({ type: 'click', target: null }));
+  assert.doesNotThrow(() => r.listeners.click.fn({ type: 'click', target: { closest: () => null } }));
   assert.equal(r.beacons.length, before);
 });
 
-test('submit listener fires contact_submit only for the contact form', () => {
+test('auxclick: middle button counts, other buttons do not', () => {
   const r = run();
-  assert.equal(r.listeners.submit.capture, true);
-  r.listeners.submit.fn({ target: { getAttribute: (k) => (k === 'name' ? 'contact' : null) } });
+  click(r, anchorTo('apps.apple.com'), 'auxclick', 1);
+  assert.deepEqual(events(r), ['pageview', 'cta_store_ios']);
+  click(r, anchorTo('apps.apple.com'), 'auxclick', 2);
+  click(r, anchorTo('play.google.com'), 'auxclick', 0);
+  assert.deepEqual(events(r), ['pageview', 'cta_store_ios']);
+});
+
+test('contact_submit fires on fb-contact-sent, not on a raw submit', () => {
+  const r = run();
+  assert.equal(r.listeners.submit, undefined);
+  r.document.dispatchEvent(new Event('submit'));
+  assert.deepEqual(events(r), ['pageview']);
+  r.document.dispatchEvent(new Event('fb-contact-sent'));
   assert.deepEqual(events(r), ['pageview', 'contact_submit']);
-  r.listeners.submit.fn({ target: { getAttribute: () => 'other' } });
-  assert.equal(r.beacons.length, 2);
 });
 
 test('fetch fallback when sendBeacon returns false or is missing', () => {
@@ -146,10 +205,12 @@ test('fetch fallback when sendBeacon returns false or is missing', () => {
   assert.equal(a.fetches[0].url, URL_);
   assert.equal(a.fetches[0].init.method, 'POST');
   assert.equal(a.fetches[0].init.keepalive, true);
+  assert.equal(a.fetches[0].init.headers, undefined);
   assert.equal(a.fetches[0].init.body, a.beacons[0].body);
   const b = run({ noBeacon: true });
   assert.equal(b.beacons.length, 0);
   assert.equal(b.fetches.length, 1);
+  assert.equal(b.fetches[0].init.headers, undefined);
   assert.equal(typeof b.fetches[0].init.body, 'string');
 });
 
@@ -159,7 +220,7 @@ test('beacon URL is exact and body is a string', () => {
   assert.equal(typeof r.beacons[0].body, 'string');
 });
 
-test('no exception escapes when URLSearchParams input is hostile', () => {
+test('no exception escapes when the environment is hostile', () => {
   const r = run({ rawSearch: {} });
   assert.equal(r.thrown, null);
   const bad = run({ win: { URLSearchParams: function () { throw new Error('boom'); } } });
