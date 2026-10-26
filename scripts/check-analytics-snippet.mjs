@@ -33,11 +33,13 @@ function walk(dir, out = []) {
 const snippet = read(path.join(root, 'assets/analytics-snippet.html'));
 const bytes = Buffer.byteLength(snippet, 'utf8');
 check(bytes <= MAX_BYTES, `snippet size ${bytes} <= ${MAX_BYTES} bytes`);
-for (const bad of ['localStorage', 'document.cookie', 'credentials']) {
+for (const bad of ['localStorage', 'document.cookie', 'sendBeacon', 'credentials:"include"']) {
   // The header comment names localStorage in a negative ("no localStorage"); strip comments first.
   const code = snippet.replace(/\/\*[\s\S]*?\*\//g, '');
   check(!code.includes(bad), `snippet code does not contain ${bad}`);
 }
+// fetch with credentials "omit": the browser ignores the host CDN's Set-Cookie on the beacon response
+check(snippet.replace(/\/\*[\s\S]*?\*\//g, '').includes('credentials:"omit"'), 'snippet sends with credentials:"omit"');
 
 const pages = walk(root).sort();
 check(pages.length === EXPECTED_PAGES, `page count ${pages.length} === ${EXPECTED_PAGES}`);
