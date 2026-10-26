@@ -25,3 +25,6 @@
 /resources/executive-summary-template.html /resources/executive-summary-template 301!
 # SEO-2A: the article template is a scaffold with placeholders, not a page - never serve it (SEO-2B instantiates real articles from it)
 /resources/_template-article.html /resources/index.html 404!
+# WEB-ANALYTICS-1: the scaffold's clean URL and the canonical snippet file are not pages either - a plain 404 (no page body), so neither runs the analytics beacon
+/resources/_template-article /404 404!
+/assets/analytics-snippet.html /404 404!

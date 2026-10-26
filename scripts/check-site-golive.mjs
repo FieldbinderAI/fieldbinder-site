@@ -7,7 +7,8 @@
 // Netlify publishes this repo root as-is (no build step), so the tree IS the built site; every file except .git, node_modules,
 // _headers and _redirects is publicly served. That is why the removed vendor's name and its CDN host are assembled from parts
 // below: this file is served too and must not match its own scan.
-// Exit 1 on any failure (and in prep mode, by design, so the PR cannot ship with the placeholder dates).
+// Nothing runs this automatically: run it by hand on the merge candidate (clean tree, HEAD = the commit that will deploy).
+// Exit 1 on any failure, and in prep mode by design (the placeholder dates must not ship).
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -26,8 +27,8 @@ const EXPECTED_SITEMAP_URLS = 22;
 const PLACEHOLDER = 'SHIP-DATE';
 const GA_SENTENCE = 'The marketing website fieldbinder.ai uses Google Analytics, which sets cookies to measure site traffic; this applies to the website only, not to the FieldBinder AI app or portal.';
 const REMOVED_SENTENCE = 'The website also uses ' + 'Hey' + 'Catch analytics, which sets a cookie to measure page views and clicks; this applies to the website only.';
-// Counsel-approved (privacy-redline-web-analytics-1.md §3, Founder relay 2026-10-21); the apostrophe in "browser’s" is U+2019,
-// the policy page's typographic convention (as in the next sentence's "browser’s IP address").
+// Counsel-approved text (2026-10-21); the apostrophe in "browser’s" is U+2019, the policy page's typographic convention
+// (as in the next sentence's "browser’s IP address").
 const FIRST_PARTY = 'The website also uses our own first-party analytics to count page views and clicks on download, sign-in and contact links. It uses no cookies and stores nothing on your device beyond a temporary session identifier that disappears when you close the tab. Our server does not store your IP address or your browser’s user-agent string; it combines them with a random value that changes every day to produce a one-way code that cannot be reversed and cannot be linked from one day to the next. We keep these event records for up to 400 days, and we record your country and device type (phone, tablet or computer) only in that aggregated form. If your browser sends a Do Not Track or Global Privacy Control signal, our first-party analytics collects nothing at all.';
 
 const argv = process.argv.slice(2);
@@ -47,6 +48,14 @@ function check(ok, label) {
 const read = (p) => readFileSync(p, 'utf8').replace(/\r\n/g, '\n');
 const count = (hay, needle) => (needle ? hay.split(needle).length - 1 : 0);
 const rel = (p) => path.relative(root, p).replace(/\\/g, '/');
+// Commented-out markup must not count as present (a snippet or tag inside <!-- --> is inert).
+const live = (html) => html.replace(/<!--[\s\S]*?-->/g, '');
+const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+
+// 0. The tree being checked is the commit that will deploy.
+const dirty = git('status', '--porcelain').trim();
+console.log(`INFO HEAD ${git('rev-parse', 'HEAD').trim()}`);
+check(dirty === '', `working tree clean${dirty ? ` (dirty: ${dirty.split('\n').length} path(s))` : ''}`);
 
 function walk(dir, out = []) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -62,12 +71,11 @@ const files = walk(root).sort();
 const pages = files.filter((p) => p.endsWith('.html') && !rel(p).startsWith('assets/'));
 check(pages.length === EXPECTED_PAGES, `page count ${pages.length} === ${EXPECTED_PAGES}`);
 
-// 1. The removed vendor: no file in the published tree names it; its module is gone.
-const TEXT = /\.(html|js|mjs|css|txt|md|xml|json|svg|webmanifest)$|^_headers$|^_redirects$/;
+// 1. The removed vendor: no file in the published tree names it; its module is gone. Every file is scanned, whatever its
+// extension, as latin1 (byte-preserving) and case-insensitively; only compressed containers (docx/zip/fonts/images) could hide it.
 const vendorHits = [];
 for (const f of files) {
-  if (!TEXT.test(path.basename(f))) continue;
-  const s = read(f);
+  const s = readFileSync(f, 'latin1').toLowerCase();
   const n = (s.match(VENDOR) || []).length + count(s, VENDOR_CDN);
   if (n) vendorHits.push(`${rel(f)} x${n}`);
 }
@@ -85,22 +93,25 @@ check(directive('connect-src').includes(ENDPOINT), `CSP connect-src contains ${E
 
 // 3. Per page: analytics snippet once, GA4 tag once, JSON-LD unchanged vs the base ref.
 const snippet = read(path.join(root, 'assets/analytics-snippet.html'));
+// Any <script> whose type is application/ld+json, whatever the quoting or attribute order; `raw` counts every mention, so a
+// block the regex cannot parse still changes the result.
 const ldHash = (s) => {
-  const blocks = [...s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]);
-  return { n: blocks.length, h: createHash('sha256').update(blocks.join('\n<<>>\n')).digest('hex').slice(0, 16) };
+  const blocks = [...s.matchAll(/<script\b[^>]*\btype\s*=\s*["']?application\/ld\+json["']?[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => m[1]);
+  return { n: blocks.length, raw: count(s.toLowerCase(), 'ld+json'), h: createHash('sha256').update(blocks.join('\n<<>>\n')).digest('hex').slice(0, 16) };
 };
 for (const f of pages) {
   const r = rel(f);
-  const s = read(f);
+  const s = live(read(f));
   check(count(s, snippet) === 1, `${r}: analytics snippet x${count(s, snippet)}`);
   check(count(s, GA_SRC) === 1 && count(s, GA_CONFIG) === 1, `${r}: GA4 tag x${count(s, GA_SRC)}, config x${count(s, GA_CONFIG)}`);
   let baseText = null;
   try {
-    baseText = execFileSync('git', ['show', `${base}:${r}`], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).replace(/\r\n/g, '\n');
+    baseText = live(git('show', `${base}:${r}`).replace(/\r\n/g, '\n'));
   } catch { /* missing on base */ }
   const now = ldHash(s);
   const was = baseText === null ? null : ldHash(baseText);
-  check(was !== null && was.h === now.h && was.n === now.n, `${r}: JSON-LD x${now.n} sha256 ${now.h} === ${base} ${was ? was.h : '(file missing on base)'}`);
+  check(was !== null && was.h === now.h && was.n === now.n && was.raw === now.raw && now.raw === now.n,
+    `${r}: JSON-LD x${now.n} (mentions ${now.raw}) sha256 ${now.h} === ${base} ${was ? `${was.h} x${was.n}` : '(file missing on base)'}`);
 }
 
 // 4. Sitemap: still 22 URLs, each one a real page.
@@ -111,7 +122,7 @@ const missing = locs.filter((l) => !existsSync(path.join(root, l === '' ? 'index
 check(missing.length === 0, `every sitemap URL maps to a page${missing.length ? ` (missing: ${missing.join(', ')})` : ''}`);
 
 // 5. privacy.html §2.4: the vendor sentence is gone; the first-party paragraph follows the GA sentence directly, once.
-const privacy = read(path.join(root, 'privacy.html'));
+const privacy = live(read(path.join(root, 'privacy.html')));
 check(count(privacy, REMOVED_SENTENCE) === 0, 'privacy §2.4: the removed vendor sentence is absent');
 check(count(privacy, FIRST_PARTY) === 1, 'privacy §2.4: the first-party paragraph appears exactly once, verbatim');
 check(count(privacy, `${GA_SENTENCE} ${FIRST_PARTY}`) === 1, 'privacy §2.4: the first-party paragraph directly follows the Google Analytics sentence');
