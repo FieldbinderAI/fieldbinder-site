@@ -5,8 +5,8 @@
 //                                                              sitemap lastmod carry that date, and no SHIP-DATE placeholder is left
 // Optional: --base <git ref> (default origin/main) for the per-page JSON-LD comparison.
 // Netlify publishes this repo root as-is (no build step), so the tree IS the built site; every file except .git, node_modules,
-// _headers and _redirects is publicly served. That is why the removed vendor's name and its CDN host are assembled from parts
-// below: this file is served too and must not match its own scan.
+// _headers and _redirects is published, and _redirects answers 404 for the internal ones (CLAUDE.md, README.md, scripts/*).
+// The removed vendor's name and its CDN host are assembled from parts below so this file never matches its own scan.
 // Nothing runs this automatically: run it by hand on the merge candidate (clean tree, HEAD = the commit that will deploy).
 // Exit 1 on any failure, and in prep mode by design (the placeholder dates must not ship).
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
@@ -27,9 +27,16 @@ const EXPECTED_SITEMAP_URLS = 22;
 const PLACEHOLDER = 'SHIP-DATE';
 const GA_SENTENCE = 'The marketing website fieldbinder.ai uses Google Analytics, which sets cookies to measure site traffic; this applies to the website only, not to the FieldBinder AI app or portal.';
 const REMOVED_SENTENCE = 'The website also uses ' + 'Hey' + 'Catch analytics, which sets a cookie to measure page views and clicks; this applies to the website only.';
-// Counsel-approved text (2026-10-21); the apostrophe in "browser’s" is U+2019, the policy page's typographic convention
-// (as in the next sentence's "browser’s IP address").
-const FIRST_PARTY = 'The website also uses our own first-party analytics to count page views and clicks on download, sign-in and contact links. It uses no cookies and stores nothing on your device beyond a temporary session identifier that disappears when you close the tab. Our server does not store your IP address or your browser’s user-agent string; it combines them with a random value that changes every day to produce a one-way code that cannot be reversed and cannot be linked from one day to the next. We keep these event records for up to 400 days, and we record your country and device type (phone, tablet or computer) only in that aggregated form. If your browser sends a Do Not Track or Global Privacy Control signal, our first-party analytics collects nothing at all.';
+// Founder-approved text (2026-10-26; approved by the Founder, not reviewed by counsel). The apostrophe in "browser’s" is U+2019,
+// the policy page's typographic convention (as in the next sentence's "browser’s IP address").
+const FIRST_PARTY = 'The website also uses our own first-party analytics to count page views, clicks on app-download and sign-in links, and contact-form submissions. It uses no cookies and stores nothing on your device beyond a temporary session identifier that disappears when you close the tab. Our analytics records do not include your IP address or your browser’s user-agent string; our server combines them with a random value that changes every day to produce a one-way code that cannot be reversed and cannot be linked from one day to the next. Each record also notes your country and device type (phone, tablet or computer). We keep these records for up to 400 days. If your browser sends a Do Not Track or Global Privacy Control signal, our first-party analytics collects nothing at all.';
+// The contact form's user-entered fields (contact.html: name, email, role, message) — §2.4's early-access clause, corrected 2026-10-26.
+const OLD_CLAUSE = 'specifically, an email address you enter on the early-access form';
+const NEW_CLAUSE = 'specifically, the name, email address, role and message you enter on the contact form';
+// SITE-HYGIENE-1: internal repo files and non-pages return a plain 404 (no build step can leave them out of the publish directory).
+const BLOCK_RULES = ['/CLAUDE.md /404 404!', '/README.md /404 404!', '/scripts/* /404 404!', '/resources/_template-article.html /404 404!',
+  '/resources/_template-article /404 404!', '/assets/analytics-snippet.html /404 404!'];
+const LLMS_TRIAL = 'Every new account gets 14 days of Pro, no card required.';
 
 const argv = process.argv.slice(2);
 let shipDate = null;
@@ -126,6 +133,15 @@ const privacy = live(read(path.join(root, 'privacy.html')));
 check(count(privacy, REMOVED_SENTENCE) === 0, 'privacy §2.4: the removed vendor sentence is absent');
 check(count(privacy, FIRST_PARTY) === 1, 'privacy §2.4: the first-party paragraph appears exactly once, verbatim');
 check(count(privacy, `${GA_SENTENCE} ${FIRST_PARTY}`) === 1, 'privacy §2.4: the first-party paragraph directly follows the Google Analytics sentence');
+check(count(privacy, OLD_CLAUSE) === 0 && count(privacy, NEW_CLAUSE) === 1, 'privacy §2.4: the early-access clause names the contact form and its fields');
+
+// 5b. Internal files and non-pages are 404 (rules in _redirects), llms.txt carries the 14-day trial and no 7-day claim.
+const redirects = read(path.join(root, '_redirects')).split('\n').map((l) => l.trim());
+const missingRules = BLOCK_RULES.filter((r) => !redirects.includes(r));
+check(missingRules.length === 0, `_redirects blocks internal files and non-pages${missingRules.length ? ` (missing: ${missingRules.join(' ; ')})` : ''}`);
+check(!redirects.some((l) => l.startsWith('/resources/_template-article.html ') && !l.includes('/404 404!')), '_redirects: the scaffold rule serves no page body');
+const llms = read(path.join(root, 'llms.txt'));
+check(count(llms, LLMS_TRIAL) === 1 && !/7[- ]day/i.test(llms), 'llms.txt: 14-day trial line once, no 7-day claim');
 
 // 6. SHIP-DATE: both "Last updated" lines and every sitemap lastmod carry the ship date; no placeholder left on any page.
 const placeholderPages = pages.filter((f) => read(f).includes(PLACEHOLDER)).map(rel);
