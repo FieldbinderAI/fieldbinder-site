@@ -24,4 +24,11 @@
 /resources/rfi-log-template.html /resources/rfi-log-template 301!
 /resources/executive-summary-template.html /resources/executive-summary-template 301!
 # SEO-2A: the article template is a scaffold with placeholders, not a page - never serve it (SEO-2B instantiates real articles from it)
-/resources/_template-article.html /resources/index.html 404!
+/resources/_template-article.html /404 404!
+# WEB-ANALYTICS-1: the scaffold's clean URL and the canonical snippet file are not pages either - a plain 404 (no page body), so neither runs the analytics beacon
+/resources/_template-article /404 404!
+/assets/analytics-snippet.html /404 404!
+# SITE-HYGIENE-1 (2026-10-26): internal repo files are not site content. There is no build step, so they cannot be left out of the publish directory - a plain 404 instead. These rules match case-SENSITIVELY while Netlify serves files case-insensitively, so case variants (e.g. /claude.md, /Scripts/...) still resolve; only removing the files from the publish directory closes that (SITE-HYGIENE-1)
+/CLAUDE.md /404 404!
+/README.md /404 404!
+/scripts/* /404 404!

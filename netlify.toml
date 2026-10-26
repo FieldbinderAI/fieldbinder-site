@@ -1,0 +1,10 @@
+# SITE-HYGIENE-1 (Founder ruling 2026-10-26): the site has no compile step, but internal repo files must not be published.
+# Netlify serves static files case-insensitively while _redirects rules match case-sensitively, so a 404 rule alone left
+# /claude.md, /README.MD, /Scripts/... at 200. This "build" only deletes the internal files from Netlify's build checkout
+# before publish; the repo keeps them. The 404 rules in _redirects stay as a second layer.
+# Deleted: CLAUDE.md, README.md, scripts/ (gates + sitemap generator), the canonical analytics snippet (inlined on every
+# page), the article scaffold, and this file. Kept: every page, assets/, resources/templates/, llms.txt, robots.txt,
+# sitemap.xml, the IndexNow key file, _headers, _redirects.
+[build]
+  publish = "."
+  command = "rm -rf CLAUDE.md README.md scripts assets/analytics-snippet.html resources/_template-article.html netlify.toml && echo 'SITE-HYGIENE-1: internal files removed from the publish directory'"
