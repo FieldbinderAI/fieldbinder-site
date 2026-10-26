@@ -29,13 +29,15 @@ const GA_SENTENCE = 'The marketing website fieldbinder.ai uses Google Analytics,
 const REMOVED_SENTENCE = 'The website also uses ' + 'Hey' + 'Catch analytics, which sets a cookie to measure page views and clicks; this applies to the website only.';
 // Founder-approved text (2026-10-26; approved by the Founder, not reviewed by counsel). The apostrophe in "browser’s" is U+2019,
 // the policy page's typographic convention (as in the next sentence's "browser’s IP address").
-const FIRST_PARTY = 'The website also uses our own first-party analytics to count page views, clicks on app-download and sign-in links, and contact-form submissions. It uses no cookies and stores nothing on your device beyond a temporary session identifier that disappears when you close the tab. Our analytics records do not include your IP address or your browser’s user-agent string; our server combines them with a random value that changes every day to produce a one-way code that cannot be reversed and cannot be linked from one day to the next. Each record also notes your country and device type (phone, tablet or computer). We keep these records for up to 400 days. If your browser sends a Do Not Track or Global Privacy Control signal, our first-party analytics collects nothing at all.';
+const FIRST_PARTY = 'The website also uses our own first-party analytics to count page views, clicks on app-download and sign-in links, and contact-form submissions. It uses no cookies and stores nothing on your device beyond a temporary session identifier that disappears when you close the tab. Our analytics records do not include your IP address or your browser’s user-agent string; our server combines them with a random value that changes every day to produce a one-way code that cannot be reversed and cannot be linked from one day to the next. Each record also notes your device type (phone, tablet or computer) and, where available, your country. We keep these records for up to 400 days. If your browser sends a Do Not Track or Global Privacy Control signal, our first-party analytics collects nothing at all.';
 // The contact form's user-entered fields (contact.html: name, email, role, message) — §2.4's early-access clause, corrected 2026-10-26.
 const OLD_CLAUSE = 'specifically, an email address you enter on the early-access form';
 const NEW_CLAUSE = 'specifically, the name, email address, role and message you enter on the contact form';
 // SITE-HYGIENE-1: internal repo files and non-pages return a plain 404 (no build step can leave them out of the publish directory).
 const BLOCK_RULES = ['/CLAUDE.md /404 404!', '/README.md /404 404!', '/scripts/* /404 404!', '/resources/_template-article.html /404 404!',
   '/resources/_template-article /404 404!', '/assets/analytics-snippet.html /404 404!'];
+// Founder rulings 2026-10-26: no 'early-access' wording is left (the contact form replaced it).
+const EARLY_ACCESS = /early[- ]access/i;
 const LLMS_TRIAL = 'Every new account gets 14 days of Pro, no card required.';
 
 const argv = process.argv.slice(2);
@@ -134,6 +136,7 @@ check(count(privacy, REMOVED_SENTENCE) === 0, 'privacy §2.4: the removed vendor
 check(count(privacy, FIRST_PARTY) === 1, 'privacy §2.4: the first-party paragraph appears exactly once, verbatim');
 check(count(privacy, `${GA_SENTENCE} ${FIRST_PARTY}`) === 1, 'privacy §2.4: the first-party paragraph directly follows the Google Analytics sentence');
 check(count(privacy, OLD_CLAUSE) === 0 && count(privacy, NEW_CLAUSE) === 1, 'privacy §2.4: the early-access clause names the contact form and its fields');
+check(!EARLY_ACCESS.test(privacy) && count(privacy, 'Contact form submissions are processed and stored by our website host (Netlify).') === 1 && count(privacy, 'processes contact form submissions (name, email address, role and message)') === 1, 'privacy §2.4 + §5: no early-access wording; contact form named in both places');
 
 // 5b. Internal files and non-pages are 404 (rules in _redirects), llms.txt carries the 14-day trial and no 7-day claim.
 const redirects = read(path.join(root, '_redirects')).split('\n').map((l) => l.trim());
