@@ -1,0 +1,35 @@
+# BUILD-1.0.7-1 (2026-10-28) — the privacy page must not merge while its two "Last updated" lines still carry the
+# SHIP-DATE placeholder. The 1.0.7 privacy PR is opened as a draft long before the store submission; the real date is
+# written on the Founder's "push privacy" the same day the builds are submitted. This check turns red on the PR until
+# then. (main carries no branch protection today, so the red check and the draft state are the gate — a reviewer must
+# not "Ready for review" + merge over a red check.)
+name: privacy-date-gate
+
+on:
+  pull_request:
+    paths:
+      - 'privacy.html'
+      - 'terms.html'
+      - '.github/workflows/privacy-date-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  no-placeholder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Both "Last updated" lines carry a real date
+        run: |
+          set -euo pipefail
+          for f in privacy.html terms.html; do
+            if grep -n 'SHIP-DATE' "$f"; then
+              echo "::error file=$f::SHIP-DATE placeholder still present — write the real date on both 'Last updated' lines before merging"
+              exit 1
+            fi
+            n=$(grep -c 'Last updated: [A-Z][a-z]* [0-9][0-9]*, 20[0-9][0-9]' "$f" || true)
+            echo "$f: $n dated 'Last updated' line(s)"
+            [ "$n" -ge 2 ] || { echo "::error file=$f::expected two dated 'Last updated' lines"; exit 1; }
+          done
