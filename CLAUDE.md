@@ -24,7 +24,8 @@ branch/preview deploy; the Founder says yes; then merge.
 - No `.html` in internal links — use root-relative clean paths (e.g. `/pricing`).
 - Title ≤60 chars, description ≤155 chars.
 - Any price shown must equal the invariant — Free $0 / Basic $9.99/mo / Pro $29/mo /
-  Team $35/seat/mo or $29/seat/mo annual — copied from `/pricing`, never retyped.
+  Team $35/seat/mo, 3-seat minimum, packs $104.99 / $174.99 / $349.99 / $699.99 per month,
+  annual: contact us — copied from `/pricing`, never retyped.
 
 ## GA4 events
 `store_badge_click{store,page_path}`, `pricing_cta_click{plan,page_path}`,
